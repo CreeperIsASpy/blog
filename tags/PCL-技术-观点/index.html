@@ -77,7 +77,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://creeperspy.xyz/"/>
+    <link rel="canonical" href="http://creeperspy.xyz/tags/pcl-技术-观点/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -94,7 +94,7 @@
     
     <title>
         
-            仿生猫的小窝 - 欢迎来到仿生猫梦见苦力怕的个人博客！
+            标签: PCL, 技术, 观点 | 仿生猫的小窝
         
     </title>
 
@@ -172,149 +172,11 @@
 <main class="page-container" id="swup">
 
 	
-	
-    <style>
-        .home-banner-container {
-            background: none !important;
-        }
-        .home-article-item,
-        .sidebar-links,
-        .sidebar-content,
-        a.page-number,
-        a.extend,
-        .sidebar-links .links:hover,
-        .right-bottom-tools,
-        footer.footer {
-            background-color: var(--background-color-transparent-80) !important;
-        }
-        .right-bottom-tools:hover,
-        a.page-number:hover,
-        a.extend:hover {
-            background-color: var(--primary-color) !important;
-        }
-        .site-info,
-        .home-article-sticky-label {
-            background-color: var(--background-color-transparent-15) !important;
-        }
-        .home-article-sticky-label {
-            backdrop-filter: none !important;
-        }
-    </style>
-    <div class="home-banner-background transition-fade fixed top-0 left-0 w-screen h-screen scale-125 sm:scale-110 box-border will-change-transform bg-cover">
-        <img src="/blog/images/stellar_sky.png" alt="home-banner-background" class="w-full h-full object-cover dark:hidden">
-        <img src="/blog/images/stellar_sky.png" alt="home-banner-background" class="w-full h-full object-cover hidden dark:block">
-    </div>
-
-
-<div class="home-banner-container flex justify-center items-center transition-fade relative">
-    
-    <div class="content mt-8 flex flex-col justify-center items-center transition-fade-down">
-        <div class="description flex flex-col justify-center items-center w-screen font-medium text-center"
-        
-        >
-            仿生猫的小窝
-            
-            
-                <p><i id="subtitle"></i></p>
-            
-        </div>
-        
-    </div>
-    <script>
-        const scrollToMain = ()=> {
-            console.log('scroll');
-            const target = document.querySelector('.main-content-container');
-            target.scrollIntoView({ behavior: 'smooth'});
-        }
-
-        // QR code mobile interaction handling
-        document.addEventListener('DOMContentLoaded', function() {
-            const qrToggleItems = document.querySelectorAll('.qr-toggle-item');
-            let activeQrItem = null;
-
-            // Handle QR code toggle for mobile
-            qrToggleItems.forEach(item => {
-                const trigger = item.querySelector('.qr-trigger');
-                const popup = item.querySelector('.qr-popup');
-
-                // Add click event for mobile
-                trigger.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Close any other open QR codes
-                    qrToggleItems.forEach(otherItem => {
-                        if (otherItem !== item) {
-                            otherItem.classList.remove('qr-active');
-                        }
-                    });
-
-                    // Toggle current QR code
-                    const isActive = item.classList.contains('qr-active');
-                    if (isActive) {
-                        item.classList.remove('qr-active');
-                        activeQrItem = null;
-                    } else {
-                        item.classList.add('qr-active');
-                        activeQrItem = item;
-                    }
-                });
-
-                // Remove focus styles on blur for mobile
-                trigger.addEventListener('blur', function() {
-                    // Small delay to allow for potential click events
-                    setTimeout(() => {
-                        if (activeQrItem !== item) {
-                            item.classList.remove('qr-active');
-                        }
-                    }, 100);
-                });
-            });
-
-            // Close QR codes when clicking outside
-            document.addEventListener('click', function(e) {
-                const isQrElement = e.target.closest('.qr-toggle-item');
-                if (!isQrElement && activeQrItem) {
-                    activeQrItem.classList.remove('qr-active');
-                    activeQrItem = null;
-                }
-            });
-        });
-    </script>
-    <style>
-        /* Mobile-specific QR code styles */
-        .qr-toggle-item.qr-active .qr-popup {
-            visibility: visible !important;
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-        
-        /* Prevent button from staying in focus/hover state on mobile */
-        @media (hover: none) and (pointer: coarse) {
-            .qr-toggle-item:focus,
-            .qr-toggle-item:hover {
-                background-color: transparent;
-            }
-            
-            .qr-toggle-item .qr-trigger:focus,
-            .qr-toggle-item .qr-trigger:hover {
-                background-color: transparent;
-                color: inherit;
-            }
-            
-            /* Only show active state when explicitly toggled */
-            .qr-popup {
-                visibility: hidden !important;
-                opacity: 0 !important;
-            }
-        }
-    </style>
-</div>
-	
 
 	<div class="main-content-container flex flex-col justify-between min-h-dvh">
 		<div class="main-content-header">
 			<header class="navbar-container px-6 md:px-12">
-    <div class="navbar-content transition-navbar has-home-banner">
+    <div class="navbar-content transition-navbar ">
         <div class="left">
             
                 <a class="logo-image h-8 w-8 sm:w-10 sm:h-10 mr-3" href="/blog/">
@@ -322,9 +184,9 @@
                 </a>
             
             <a class="logo-title" href="/blog/">
-                <h1>
+                
                 仿生猫的小窝
-                </h1>
+                
             </a>
         </div>
 
@@ -338,7 +200,7 @@
 
                             <li class="navbar-item">
                                 <!-- Menu -->
-                                <a class="active"
+                                <a class=""
                                    href="/blog/"
                                         >
                                     <i class="fa-regular fa-house fa-fw"></i>
@@ -372,7 +234,7 @@
 
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         
-                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
                            href="/blog/"
                         >
                             <span>
@@ -417,150 +279,60 @@
 
 		<div class="main-content-body transition-fade-up">
 			
-			<div class="home-sidebar-container">
-    <div class="sticky-container sticky">
-        
-        
-            
-            <div class="sidebar-content" >
-                <div class="avatar flex justify-center">
-    <img src="/blog/images/avatar.jpg">
-</div>
-                <div class="author flex flex-col justify-center my-2.5 mx-0">
-    <div class="name">CreeperIsASpy | 仿生猫梦见苦力怕</div>
-    
-        <div class="label">Lv1</div>
-    
-</div>
-                <div class="statistics flex justify-around my-2.5">
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/blog/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">1</div>
-        <div class="label text-third-text-color text-sm">标签</div>
-    </a>
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/blog/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">0</div>
-        <div class="label text-third-text-color text-sm">分类</div>
-    </a>
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/blog/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">2</div>
-        <div class="label text-third-text-color text-sm">文章</div>
-    </a>
-</div>
-            </div>
-        
-
-    </div>
-</div>
-
-			
 
 			<div class="main-content">
-				<div class="home-content-container">
-    <ul class="home-article-list">
-        
-            <li class="home-article-item">
+				<div class="page-template-container">
+	
 
+	
+	<div class="tag-name">
+    <i class="fa-solid fa-tag"></i>&nbsp;PCL, 技术, 观点
+</div>
+<div class="tag-post-list">
+    
+<div class="archive-list-container">
+    
+        <section class="archive-item mb-spacing-unit last:mb-0">
+            <div class="archive-item-header flex flex-row items-center mb-2">
+                <span class="archive-year font-semibold text-3xl mr-2">2025</span>
+                <span class="archive-year-post-count text-xs md:text-sm font-bold rounded-small bg-third-background-color py-[2px] px-[10px] border border-border-color">1</span>
+            </div>
+            
+            <ul class="article-list pl-0 md:pl-8 text-lg leading-[1.5]">
                 
-
+                    
+                    
+                         <!-- Close the previous LI if not the first item -->
+                        <li class="article-item space-y-2 px-6 pt-10 pb-2 text-xl relative border-l-2 border-border-color" date-is='11-28'>
+                    
+                    <a href="/blog/2025/11/28/%E3%80%90PCL%E3%80%91%E6%88%91%E5%AF%B9%E8%81%94%E6%9C%BA%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9C%8B%E6%B3%95/" class="block w-fit">
+                        <span class="article-title my-0.5 text-2xl">【PCL】我对联机事件的一些看法</span>
+                    </a>
+                    
                 
+                </li> <!-- Ensure the last item is properly closed -->
+            </ul>
+        </section>
+    
+</div>
+</div>
+	
 
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/blog/2025/11/28/hello-world/">
-                            Hello World
-                        </a>
-                    </h3>
+	<div class="page-template-content markdown-body">
+		
 
-                    <div class="home-article-content markdown-body">
-                        
-                            
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Qu...
-                        
-                    </div>
+		
+	</div>
 
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Fri Nov 28 2025 19:37:38 GMT+0800">
-                
-                    2025-11-28
-                
-            </span>
-        </span>
-        
-        
-    </div>
-
-    <a href="/blog/2025/11/28/hello-world/">阅读全文<span class="seo-reader-text">Hello World</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+	<div class="page-template-comments">
+		
+	</div>
 </div>
 
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/blog/2025/11/28/%E3%80%90PCL%E3%80%91%E6%88%91%E5%AF%B9%E8%81%94%E6%9C%BA%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9C%8B%E6%B3%95/">
-                            【PCL】我对联机事件的一些看法
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            
-                            争端2025 年 1 月 11 日，「Terracotta｜陶瓦联机」发布了第一个版本，从而开始了国内 MC 启动器重新开启联机功能的第二波潮流。它借助于 EasyTier 组网工具，实现了点对点的打洞联机功能，为后续的所有联机模块提供了基本思路。自此，启动器内置联机的竞争出现了。7 月， PCL-CE 也实现了基于 EasyTier 联机功能，后续成功兼容了 Terracotta，并计划实...
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Fri Nov 28 2025 19:08:07 GMT+0800">
-                
-                    2025-11-28
-                
-            </span>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fa-solid fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/blog/tags/PCL-%E6%8A%80%E6%9C%AF-%E8%A7%82%E7%82%B9/">PCL, 技术, 观点</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/blog/2025/11/28/%E3%80%90PCL%E3%80%91%E6%88%91%E5%AF%B9%E8%81%94%E6%9C%BA%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9C%8B%E6%B3%95/">阅读全文<span class="seo-reader-text">【PCL】我对联机事件的一些看法</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
-    </ul>
-
-    <div class="home-paginator px-7 py-5">
-        <div class="paginator">
+<div class="paginator">
 	<span class="page-number current">1</span>
 </div>
   
-    </div>
-</div>
-
 			</div>
 
 			
@@ -726,7 +498,6 @@ Qu...
         containers: ["#swup"],
     });
 </script>
-
 
 
 

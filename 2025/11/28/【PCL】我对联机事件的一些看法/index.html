@@ -77,7 +77,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://creeperspy.xyz/"/>
+    <link rel="canonical" href="http://creeperspy.xyz/2025/11/28/【pcl】我对联机事件的一些看法/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -94,7 +94,7 @@
     
     <title>
         
-            仿生猫的小窝 - 欢迎来到仿生猫梦见苦力怕的个人博客！
+            【PCL】我对联机事件的一些看法 | 仿生猫的小窝
         
     </title>
 
@@ -172,149 +172,11 @@
 <main class="page-container" id="swup">
 
 	
-	
-    <style>
-        .home-banner-container {
-            background: none !important;
-        }
-        .home-article-item,
-        .sidebar-links,
-        .sidebar-content,
-        a.page-number,
-        a.extend,
-        .sidebar-links .links:hover,
-        .right-bottom-tools,
-        footer.footer {
-            background-color: var(--background-color-transparent-80) !important;
-        }
-        .right-bottom-tools:hover,
-        a.page-number:hover,
-        a.extend:hover {
-            background-color: var(--primary-color) !important;
-        }
-        .site-info,
-        .home-article-sticky-label {
-            background-color: var(--background-color-transparent-15) !important;
-        }
-        .home-article-sticky-label {
-            backdrop-filter: none !important;
-        }
-    </style>
-    <div class="home-banner-background transition-fade fixed top-0 left-0 w-screen h-screen scale-125 sm:scale-110 box-border will-change-transform bg-cover">
-        <img src="/blog/images/stellar_sky.png" alt="home-banner-background" class="w-full h-full object-cover dark:hidden">
-        <img src="/blog/images/stellar_sky.png" alt="home-banner-background" class="w-full h-full object-cover hidden dark:block">
-    </div>
-
-
-<div class="home-banner-container flex justify-center items-center transition-fade relative">
-    
-    <div class="content mt-8 flex flex-col justify-center items-center transition-fade-down">
-        <div class="description flex flex-col justify-center items-center w-screen font-medium text-center"
-        
-        >
-            仿生猫的小窝
-            
-            
-                <p><i id="subtitle"></i></p>
-            
-        </div>
-        
-    </div>
-    <script>
-        const scrollToMain = ()=> {
-            console.log('scroll');
-            const target = document.querySelector('.main-content-container');
-            target.scrollIntoView({ behavior: 'smooth'});
-        }
-
-        // QR code mobile interaction handling
-        document.addEventListener('DOMContentLoaded', function() {
-            const qrToggleItems = document.querySelectorAll('.qr-toggle-item');
-            let activeQrItem = null;
-
-            // Handle QR code toggle for mobile
-            qrToggleItems.forEach(item => {
-                const trigger = item.querySelector('.qr-trigger');
-                const popup = item.querySelector('.qr-popup');
-
-                // Add click event for mobile
-                trigger.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Close any other open QR codes
-                    qrToggleItems.forEach(otherItem => {
-                        if (otherItem !== item) {
-                            otherItem.classList.remove('qr-active');
-                        }
-                    });
-
-                    // Toggle current QR code
-                    const isActive = item.classList.contains('qr-active');
-                    if (isActive) {
-                        item.classList.remove('qr-active');
-                        activeQrItem = null;
-                    } else {
-                        item.classList.add('qr-active');
-                        activeQrItem = item;
-                    }
-                });
-
-                // Remove focus styles on blur for mobile
-                trigger.addEventListener('blur', function() {
-                    // Small delay to allow for potential click events
-                    setTimeout(() => {
-                        if (activeQrItem !== item) {
-                            item.classList.remove('qr-active');
-                        }
-                    }, 100);
-                });
-            });
-
-            // Close QR codes when clicking outside
-            document.addEventListener('click', function(e) {
-                const isQrElement = e.target.closest('.qr-toggle-item');
-                if (!isQrElement && activeQrItem) {
-                    activeQrItem.classList.remove('qr-active');
-                    activeQrItem = null;
-                }
-            });
-        });
-    </script>
-    <style>
-        /* Mobile-specific QR code styles */
-        .qr-toggle-item.qr-active .qr-popup {
-            visibility: visible !important;
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-        
-        /* Prevent button from staying in focus/hover state on mobile */
-        @media (hover: none) and (pointer: coarse) {
-            .qr-toggle-item:focus,
-            .qr-toggle-item:hover {
-                background-color: transparent;
-            }
-            
-            .qr-toggle-item .qr-trigger:focus,
-            .qr-toggle-item .qr-trigger:hover {
-                background-color: transparent;
-                color: inherit;
-            }
-            
-            /* Only show active state when explicitly toggled */
-            .qr-popup {
-                visibility: hidden !important;
-                opacity: 0 !important;
-            }
-        }
-    </style>
-</div>
-	
 
 	<div class="main-content-container flex flex-col justify-between min-h-dvh">
 		<div class="main-content-header">
 			<header class="navbar-container px-6 md:px-12">
-    <div class="navbar-content transition-navbar has-home-banner">
+    <div class="navbar-content transition-navbar ">
         <div class="left">
             
                 <a class="logo-image h-8 w-8 sm:w-10 sm:h-10 mr-3" href="/blog/">
@@ -322,9 +184,9 @@
                 </a>
             
             <a class="logo-title" href="/blog/">
-                <h1>
+                
                 仿生猫的小窝
-                </h1>
+                
             </a>
         </div>
 
@@ -338,7 +200,7 @@
 
                             <li class="navbar-item">
                                 <!-- Menu -->
-                                <a class="active"
+                                <a class=""
                                    href="/blog/"
                                         >
                                     <i class="fa-regular fa-house fa-fw"></i>
@@ -372,7 +234,7 @@
 
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         
-                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
                            href="/blog/"
                         >
                             <span>
@@ -417,150 +279,219 @@
 
 		<div class="main-content-body transition-fade-up">
 			
-			<div class="home-sidebar-container">
-    <div class="sticky-container sticky">
-        
-        
-            
-            <div class="sidebar-content" >
-                <div class="avatar flex justify-center">
-    <img src="/blog/images/avatar.jpg">
-</div>
-                <div class="author flex flex-col justify-center my-2.5 mx-0">
-    <div class="name">CreeperIsASpy | 仿生猫梦见苦力怕</div>
-    
-        <div class="label">Lv1</div>
-    
-</div>
-                <div class="statistics flex justify-around my-2.5">
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/blog/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">1</div>
-        <div class="label text-third-text-color text-sm">标签</div>
-    </a>
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/blog/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">0</div>
-        <div class="label text-third-text-color text-sm">分类</div>
-    </a>
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/blog/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">2</div>
-        <div class="label text-third-text-color text-sm">文章</div>
-    </a>
-</div>
-            </div>
-        
-
-    </div>
-</div>
-
-			
 
 			<div class="main-content">
-				<div class="home-content-container">
-    <ul class="home-article-list">
-        
-            <li class="home-article-item">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
 
-                
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">【PCL】我对联机事件的一些看法</h1>
+			</div>
+			
+		</div>
 
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/blog/2025/11/28/hello-world/">
-                            Hello World
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Qu...
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Fri Nov 28 2025 19:37:38 GMT+0800">
-                
-                    2025-11-28
-                
-            </span>
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/blog/images/avatar.jpg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">CreeperIsASpy | 仿生猫梦见苦力怕</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv1</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-11-28 19:08:07</span>
+        <span class="mobile">2025-11-28 19:08:07</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-11-28 19:37:38</span>
+            <span class="mobile">2025-11-28 19:37:38</span>
+            <span class="hover-info">更新</span>
         </span>
-        
-        
-    </div>
+    
 
-    <a href="/blog/2025/11/28/hello-world/">阅读全文<span class="seo-reader-text">Hello World</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/blog/tags/PCL-%E6%8A%80%E6%9C%AF-%E8%A7%82%E7%82%B9/">PCL, 技术, 观点</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
 </div>
 
-                </div>
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h2 id="争端"><a href="#争端" class="headerlink" title="争端"></a>争端</h2><p>2025 年 1 月 11 日，<a class="link"   target="_blank" rel="noopener" href="https://github.com/burningtnt/Terracotta" >「Terracotta｜陶瓦联机」<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>发布了第一个版本，从而开始了国内 MC 启动器重新开启联机功能的第二波潮流。它借助于 EasyTier 组网工具，实现了点对点的打洞联机功能，为后续的所有联机模块提供了基本思路。自此，启动器内置联机的竞争出现了。<br>7 月， PCL-CE 也实现了基于 EasyTier 联机功能，后续成功兼容了 Terracotta，并计划实现一套可以跨启动器联机的协议：Scaffolding（后面会提到）<br>10 月下旬， PCL （上游）官方宣布 <a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/opus/1127340164029349892" >“联机回归！”<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p>这次， PCL 使用了自研的 [“简洁联机标记约定”（PCL 约定）]( <a class="link"   target="_blank" rel="noopener" href="https://github.com/Meloong-Git/PCL/wiki/%E7%AE%80%E6%B4%81%E8%81%94%E6%9C%BA%E6%A0%87%E8%AE%B0%E7%BA%A6%E5%AE%9A" >简洁联机标记约定 · Meloong-Git&#x2F;PCL Wiki<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> ) 。但不变的是，此协议依然采用了 EasyTier 组网作为模块核心。<br>10 月下旬开始， EasyTier 的核心节点服务器由于持续的攻击和超过预期的流量，开始崩溃。而社区舆论也开始从赞扬开源精神，转向了质疑。</p>
+<p>后续，PCL CE 和 PCL 都先后关闭了联机服务。</p>
+<p>关闭的主要原因有三点，这在<a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/opus/1135872352762986504" >龙腾猫跃的动态<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>里面说的很清楚：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/blog/images/my-thoughts-on-the-link-feature-being-shut-down-1.png"
+                      alt="图片1"
+                ></p>
+<p>这里提到了“合规性有着一些问题“，那么问题在哪里呢？</p>
+<h2 id="合规性"><a href="#合规性" class="headerlink" title="合规性"></a>合规性</h2><p>答案就在一切的根源：<a class="link"   target="_blank" rel="noopener" href="https://easytier.cn/" >EasyTier<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>。</p>
+<p>EasyTier 是一款“远程组网工具“。它将主机和房间成员的电脑连接到同一个”虚拟局域网“。这里的虚拟局域网和普通局域网没有本质区别，因此它也不止可以被用来进行局域网联机，还能用来进入学校、公司等的内网，访问内网中的文件等服务。</p>
+<p>EasyTier 在服务中使用如下原理。首先，主机电脑通过 EasyTier 向“中心节点服务器“发送请求，被分配到一个子节点地址。接下来，主机电脑连接到子节点，尝试通过子节点进行“<a class="link"   target="_blank" rel="noopener" href="https://easytier.cn/guide/aboutp2p.html#%E4%BB%80%E4%B9%88%E6%98%AF%E6%89%93%E6%B4%9E" >打洞<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>”来建立一个“<a class="link"   target="_blank" rel="noopener" href="https://easytier.cn/guide/aboutp2p.html#%E4%BB%80%E4%B9%88%E6%98%AF-p2p" >P2P<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>”（点对点）连接。但是在普通情况下打洞有可能失败，于是则会使用子节点来转发流量到对方服务器（中继）。一旦建立稳定连接，则可以通过 EasyTier 来向虚拟局域网中的其他成员电脑发送信息。</p>
+<p>因此，所谓的合规性问题就在于：<strong>通过中继服务器在两台电脑之间建立信道，这件事到底违规不违规？</strong></p>
+<p>其实，组网工具就是一个广义上的 VPN（<strong>V</strong>irtual <strong>P</strong>rivate <strong>N</strong>etwork）服务。如果成员主机在境外，抑或是传输了违规的信息，那么整个服务就与违法的翻墙服务没有任何区别。但是请注意，如果没有进行违规服务，也没有跨境，那么 VPN 本身并不违法。<br>也就是说：<strong>VPN ≠ 翻墙。</strong></p>
+<p>但是，不管是 Scaffolding、PCL 协议还是 Terracotta，这其中都没有实现任何对流量的审查。既没有限制其只能转发 Minecraft 流量，也没有检查主机是否位于境外。同样，EasyTier 的节点也没有检查通过其中的流量。<br>这就意味着：<strong>只要你想，你可以通过 EasyTier 随意向位于国外的主机转递非法流量，只要你们建立了同一个虚拟局域网。</strong></p>
+<p>所以，这就是各种视频里面宣传的 “请立刻停止为 PCL 贡献节点”之类的源头。里面持有的观点不外乎是：搭建节点，就等于搭建 VPN，就等于违法。如果你搭建了节点，那很可能被一起追责。就算是合规运营，很多服务商的条例里也禁止提供中继服务，这也很可能是EasyTier被服务商诟病的原因。</p>
+<p>这其实是利用了所有人对于“VPN”这个词的恐慌心理。只要建立了恰当的流量审查，在恰当的厂商搭建，那么 EasyTier 等组网 VPN 服务，一样可以安全存在。</p>
+<h2 id="最后一根稻草"><a href="#最后一根稻草" class="headerlink" title="最后一根稻草"></a>最后一根稻草</h2><p>再来看第一、三个问题。</p>
+<p>这些“带节奏”和“攻击”的源头是哪里？就是运营商……</p>
+<blockquote>
+<p>那些视频 IP 都是黑龙江，发布时间和封面标题也很一致，都是云服务商（</p>
+</blockquote>
+<p>云服务商其实本身就很抵制内网穿透这些东西，那么发视频的原因也很明确了……</p>
+<p>事实上，大多数节点的负载是源于攻击，而不是来自 Minecraft 联机。更有通过节点走加密流量的，反正不是在联机。</p>
+<p>接下来，经过有组织预谋的舆论导向，联机功能的齿轮开始不堪重负，渐渐停转……</p>
+<p>11月16日，PCL CE联机入口正式关闭：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/blog/images/my-thoughts-on-the-link-feature-being-shut-down-2.png"
+                      alt="图片2"
+                ></p>
+<p>接下来，PCL 的联机入口也<a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/opus/1135872352762986504" >相继关闭<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>。</p>
+<p>联机崩溃的根本原因，就在于吹捧过度，运营商攻击，节点不堪重负（由于攻击）以及曲解“VPN”含义造成的群体被害妄想。</p>
+<h2 id="恢复？"><a href="#恢复？" class="headerlink" title="恢复？"></a>恢复？</h2><p>11月19日，龙腾猫跃发布了一篇新动态：<a target="_blank" rel="noopener" href="https://www.bilibili.com/opus/1136622211136749568"><strong>报告！最新进展！</strong></a><strong>。</strong></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/blog/images/my-thoughts-on-the-link-feature-being-shut-down-3.png"
+                      alt="图片3"
+                ></p>
+<p>我只希望联机能够快点回归……吧。</p>
+<p>利益这种东西，还是太复杂了。</p>
+<p>毕竟，这只是一个<strong>游戏</strong>的功能而已。</p>
+<h2 id="一些其他的话"><a href="#一些其他的话" class="headerlink" title="一些其他的话"></a>一些其他的话</h2><p>龙猫本人似乎不太满意 <a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/opus/1136282681104924672" >谁在台前发电，谁在背后扛压力<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 这篇文章…… 这篇文章里面有些语句似乎在暗指是各大启动器对该服务的滥用导致了 EasyTier 的崩溃。在这里澄清一下，联机功能崩溃的本质原因就是运营商的炒作和攻击（当然后者很有可能是前者引发的），而不是由于启动器造成的负载。事实上，如果节点仅仅用于打洞，负载是相当之低的，完全不可能造成崩溃。</p>
+<p>我对此事的感想是：<br>一个工具只要出圈，基本就等于招致诟病和践踏。毕竟，林子大了什么鸟都有……<br>此事的根本原因即是联机功能被大肆炒作导致的，这让运营商注意到了这个功能，才出现后续的事件。<br>事实上，PCL CE 等本身就是被作为一个小工具考虑的，可是一旦被 UP 主等等注意到，就会宣传。<br>我非常讨厌大肆宣传炒作不成熟工具的人，例如将 PCL CE 炒作为 “PCL 增强版” 等。</p>
+<p>这可能听起来十分反直觉，但项目出圈有时即是出局。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>龙腾猫跃的个人空间-bilibili：<a class="link"   target="_blank" rel="noopener" href="https://space.bilibili.com/11343203" >https://space.bilibili.com/11343203<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p>PCL 联机功能（再次）暂时关闭的说明……-bilibili by 龙腾猫跃：<a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/opus/1135872352762986504" >https://www.bilibili.com/opus/1135872352762986504<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p>EasyTier 文档-EasyTier官网：<a class="link"   target="_blank" rel="noopener" href="https://easytier.cn/" >EasyTier - 简单、安全、去中心化的异地组网方案<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p>当 PCL 联机遇上 EasyTier：谁在台前发电，谁在背后扛压力-bilibili by Qihuang02-<a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/opus/1136282681104924672" >https://www.bilibili.com/opus/1136282681104924672<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p>简洁联机标记约定 · Meloong-Git&#x2F;PCL Wiki-GitHub by 龙腾猫跃：<a class="link"   target="_blank" rel="noopener" href="https://github.com/Meloong-Git/PCL/wiki/%E7%AE%80%E6%B4%81%E8%81%94%E6%9C%BA%E6%A0%87%E8%AE%B0%E7%BA%A6%E5%AE%9A" >https://github.com/Meloong-Git/PCL/wiki/%E7%AE%80%E6%B4%81%E8%81%94%E6%9C%BA%E6%A0%87%E8%AE%B0%E7%BA%A6%E5%AE%9A<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p>陶瓦联机-GitHub by BurningTNT：<a class="link"   target="_blank" rel="noopener" href="https://github.com/burningtnt/Terracotta" >https://github.com/burningtnt/Terracotta<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> 【PCL】我对联机事件的一些看法</li>
+        <li><strong>作者:</strong> CreeperIsASpy | 仿生猫梦见苦力怕</li>
+        <li><strong>创建于
+                :</strong> 2025-11-28 19:08:07</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2025-11-28 19:37:38
             </li>
         
-            <li class="home-article-item">
+        <li>
+            <strong>链接:</strong> https://creeperspy.xyz/2025/11/28/【PCL】我对联机事件的一些看法/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
 
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/blog/2025/11/28/%E3%80%90PCL%E3%80%91%E6%88%91%E5%AF%B9%E8%81%94%E6%9C%BA%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9C%8B%E6%B3%95/">
-                            【PCL】我对联机事件的一些看法
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            
-                            争端2025 年 1 月 11 日，「Terracotta｜陶瓦联机」发布了第一个版本，从而开始了国内 MC 启动器重新开启联机功能的第二波潮流。它借助于 EasyTier 组网工具，实现了点对点的打洞联机功能，为后续的所有联机模块提供了基本思路。自此，启动器内置联机的竞争出现了。7 月， PCL-CE 也实现了基于 EasyTier 联机功能，后续成功兼容了 Terracotta，并计划实...
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Fri Nov 28 2025 19:08:07 GMT+0800">
-                
-                    2025-11-28
-                
-            </span>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fa-solid fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/blog/tags/PCL-%E6%8A%80%E6%9C%AF-%E8%A7%82%E7%82%B9/">PCL, 技术, 观点</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/blog/2025/11/28/%E3%80%90PCL%E3%80%91%E6%88%91%E5%AF%B9%E8%81%94%E6%9C%BA%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9C%8B%E6%B3%95/">阅读全文<span class="seo-reader-text">【PCL】我对联机事件的一些看法</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
     </ul>
-
-    <div class="home-paginator px-7 py-5">
-        <div class="paginator">
-	<span class="page-number current">1</span>
-</div>
-  
-    </div>
 </div>
 
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/blog/tags/PCL-%E6%8A%80%E6%9C%AF-%E8%A7%82%E7%82%B9/">#PCL, 技术, 观点</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/blog/2025/11/28/hello-world/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48">Hello World</span>
+						<span class="post-nav-item">上一篇</span>
+					</span>
+				</a>
+			</div>
+			
+			
+		</div>
+		
+
+
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">目录</div>
+		<div class="page-title">【PCL】我对联机事件的一些看法</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%89%E7%AB%AF"><span class="nav-text">争端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%88%E8%A7%84%E6%80%A7"><span class="nav-text">合规性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%E4%B8%80%E6%A0%B9%E7%A8%BB%E8%8D%89"><span class="nav-text">最后一根稻草</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%81%A2%E5%A4%8D%EF%BC%9F"><span class="nav-text">恢复？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%85%B6%E4%BB%96%E7%9A%84%E8%AF%9D"><span class="nav-text">一些其他的话</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-text">参考文献</span></a></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
 			</div>
 
 			
@@ -644,6 +575,22 @@ Qu...
 		</div>
 	</div>
 
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+	</ul>
+</div>
+	</div>
 	
 
 	<div class="right-side-tools-container">
