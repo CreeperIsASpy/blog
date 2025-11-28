@@ -52,14 +52,14 @@ global:
   fonts:
     # Chinese fonts
     chinese: 
-      enable: false # Whether to enable custom chinese fonts
-      family:  # Font family
-      url:  # Font URL to CSS file
+      enable: true 
+      family: "LXGW WenKai Screen" # 注意：屏幕优化版的字体名称带 Screen
+      url: "https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css"
     # English fonts
     english: 
-      enable: false # Whether to enable custom english fonts
-      family:  # Font family
-      url:  # Font URL to CSS file
+      enable: true # Whether to enable custom english fonts
+      family: "Inter"
+      url:  "https://fonts.loli.net/css2?family=Inter:wght@300;400;500;600;700&display=swap" # Gemini 叫我这么写（欲哭无泪）……
     # Custom title fonts (navbar, sidebar)
     title:
       enable: false # Whether to enable custom title fonts
@@ -100,7 +100,7 @@ global:
   open_graph:
     enable: false
     image:   # default og:image
-    description: Hexo Theme Redefine, Redefine Your Hexo Journey.
+    description: 仿生猫的小窝
   # Google Analytics
   google_analytics:
     enable: false # Whether to enable Google Analytics
@@ -139,8 +139,8 @@ home_banner:
   subtitle:
     text: ["只要不被世界改变，你就改变了世界。"] # subtitle text, array
     hitokoto:  # 一言配置
-      enable: true # Whether to enable hitokoto
-      show_author: true # Whether to show author
+      enable: false # Whether to enable hitokoto
+      show_author: false # Whether to show author
       api: https://v1.hitokoto.cn # API URL, can add types, see https://developer.hitokoto.cn/sentence/#%E5%8F%A5%E5%AD%90%E7%B1%BB%E5%9E%8B-%E5%8F%82%E6%95%B0
     typing_speed: 100 # Typing speed (ms)
     backing_speed: 80 # Backing speed (ms)
@@ -163,15 +163,15 @@ home_banner:
   # Home banner custom font
   custom_font: 
     # Whether to enable custom font
-    enable: false
+    enable: true
     # Font family
-    family: 
+    family: LXGW WenKai Screen
     # URL to font CSS file
-    url:
+    url: https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
   # Home banner social links
   social_links:
     # Whether to enable
-    enable: false
+    enable: true
     # Social links style
     style: default # default, reverse, center
     # Social links
@@ -193,7 +193,7 @@ home_banner:
 # Docs: https://redefine-docs.ohevan.com/home/navbar
 navbar:
   # Auto hide navbar
-  auto_hide: false
+  auto_hide: true
   # Navbar background color
   color:
     left: "#f78736" #left side 
@@ -231,7 +231,7 @@ navbar:
   # Navbar search (local search). Requires hexo-generator-searchdb (npm i hexo-generator-searchdb). See https://github.com/theme-next/hexo-generator-searchdb
   search:
     # Whether to enable
-    enable: false
+    enable: true
     # Preload search data when the page loads
     preload: true
 # NAVIGATION BAR <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
