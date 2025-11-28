@@ -352,7 +352,7 @@ comment:
   # Whether to enable comment
   enable: false
   # Comment system
-  system: waline # waline, gitalk, twikoo, giscus
+  system: giscus # waline, gitalk, twikoo, giscus
   # System configuration
   config:
     # Waline comment system. See https://waline.js.org/
@@ -377,9 +377,9 @@ comment:
       region: # Twikoo region. can be empty
     # Giscus comment system. See https://giscus.app/
     giscus:
-      repo: # Github repository name e.g. EvanNotFound/hexo-theme-redefine
-      repo_id: # Github repository id
-      category: # Github discussion category
+      repo: CreeperIsASpy/blog
+      repo_id: 1102431672
+      category: 
       category_id: # Github discussion category id
       mapping: pathname # Which value to use as the unique identifier for the page. e.g. pathname, url, title, og:title. DO NOT USE og:title WITH PJAX ENABLED since pjax will not update og:title when the page changes
       strict: 0 # Whether to enable strict mode. e.g. 0, 1
@@ -399,16 +399,16 @@ footer:
   # Icon in footer, write fontawesome icon code here
   icon: '<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>'
   # The start time of the website, format: YYYY/MM/DD HH:mm:ss
-  start: 2022/8/17 11:45:14
+  start: 2025/11/20 21:30:00
   # Site statistics
   statistics: true # show site statistics or not (total articles, total words)
   # Footer message
   customize:
   # ICP record number. See https://beian.miit.gov.cn/
   icp:
-    enable: false # Whether to enable
-    number: # ICP record number
-    url: # ICP record url
+    enable: true # Whether to enable
+    number: 萌ICP备20250384号 # ICP record number
+    url: https://icp.gov.moe/?keyword=20250384 # ICP record url
 # FOOTER <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 
