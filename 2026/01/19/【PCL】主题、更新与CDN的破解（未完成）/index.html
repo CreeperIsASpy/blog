@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="CreeperIsASpy | 仿生猫梦见苦力怕">
+    
+    <!-- Completely eliminate flash of wrong theme -->
+    <script>
+        (function() {
+            const THEME_KEY = "REDEFINE-THEME-STATUS";
+            const DARK = "dark", LIGHT = "light";
+            
+            // Get preferred theme
+            function getTheme() {
+                try {
+                    const saved = localStorage.getItem(THEME_KEY);
+                    if (saved) {
+                        const { isDark } = JSON.parse(saved);
+                        return isDark ? DARK : LIGHT;
+                    }
+                } catch (e) {}
+                
+                return matchMedia("(prefers-color-scheme: dark)").matches ? DARK : LIGHT;
+            }
+            
+            // Apply theme to document
+            function applyTheme(theme) {
+                const isDark = theme === DARK;
+                const root = document.documentElement;
+                
+                // Set classes for compatibility
+                root.classList.add(theme);
+                root.classList.remove(isDark ? LIGHT : DARK);
+                root.style.colorScheme = theme;
+            }
+            
+            // Initial application
+            const theme = getTheme();
+            applyTheme(theme);
+            
+            // Listen for system preference changes
+            matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
+                // Only update if using system preference (no localStorage entry)
+                if (!localStorage.getItem(THEME_KEY)) {
+                    applyTheme(matches ? DARK : LIGHT);
+                }
+            });
+            
+            // Set body classes ASAP (before DOMContentLoaded)
+            (function() {
+                const addBodyClass = () => {
+                    const b = document.body;
+                    if (!b) return false;
+                    b.classList.add(theme + "-mode");
+                    return true;
+                };
+
+                // Try immediately
+                if (addBodyClass()) return;
+
+                // Observe until body exists
+                const mo = new MutationObserver(() => {
+                    if (addBodyClass()) mo.disconnect();
+                });
+                mo.observe(document.documentElement, { childList: true, subtree: true });
+            })();
+        })();
+    </script>
+    
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://blog.creeperspy.top/2026/01/19/【pcl】主题、更新与cdn的破解（未完成）/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/avatar.jpg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/avatar.jpg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            【PCL】主题、更新与CDN的破解（未完成） | 仿生猫的小窝
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+        <link href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" rel="stylesheet">
+    
+    
+    
+        <link href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" rel="stylesheet">
+    
+    
+        <link href="https://fonts.loli.net/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"blog.creeperspy.top","root":"/","language":"zh-CN","path":"search.json"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/stellar_sky.png","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":true,"family":"LXGW WenKai Screen","url":"https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css"},"english":{"enable":true,"family":"Inter","url":"https://fonts.loli.net/css2?family=Inter:wght@300;400;500;600;700&display=swap"},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"side_tools":{"gear_rotation":true,"auto_expand":false},"open_graph":{"enable":false,"image":null,"description":"仿生猫的小窝"},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/stellar_sky.png","dark":"/images/stellar_sky.png"},"title":"仿生猫的小窝","subtitle":{"text":["只要不被世界改变，你就改变了世界。"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":true,"family":"LXGW WenKai Screen","url":"https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css"},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/CreeperIsASpy","instagram":null,"zhihu":null,"twitter":null,"email":"mail@creeperspy.top"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"autoplay":false,"type":"fixed","audios":[{"name":"Flowers","artist":"Adrián Berenguer","url":"/music_player/flowers.mp3","cover":"/music_player/cover.jpg","lrc":"/music_player/lrc_placeholder.lrc"}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.5","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2025/11/20 21:30:00"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+                <a class="logo-image h-8 w-8 sm:w-10 sm:h-10 mr-3" href="/">
+                    <img src="/images/avatar.jpg" class="w-full h-full rounded-xs">
+                </a>
+            
+            <a class="logo-title" href="/">
+                
+                仿生猫的小窝
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">3</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">0</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">【PCL】主题、更新与CDN的破解（未完成）</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/images/avatar.jpg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">CreeperIsASpy | 仿生猫梦见苦力怕</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv1</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2026-01-19 15:12:35</span>
+        <span class="mobile">2026-01-19 15:12:35</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2026-01-19 16:58:04</span>
+            <span class="mobile">2026-01-19 16:58:04</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/PCL/">PCL</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%8A%80%E6%9C%AF/">技术</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E8%A7%82%E7%82%B9/">观点</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h2 id="反编译"><a href="#反编译" class="headerlink" title="反编译"></a>反编译</h2><p><del>由于太菜</del>我没能知道 PCL 快照版加的什么壳，试着使用了 .NET Reactor Slayer，成功脱去了大部分内容。</p>
+<p>脱壳后使用 dnSpy 反编译得到源代码。</p>
+<p>先纵览 ModSecret 的源代码，得到本次反编译的目标：</p>
+<ul>
+<li><p>主题相关内容</p>
+</li>
+<li><p>更新相关内容</p>
+</li>
+<li><p>网络鉴权相关内容</p>
+</li>
+</ul>
+<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p>主题相关内容共分两部分：秋仪金和其他主题</p>
+<h3 id="其他主题"><a href="#其他主题" class="headerlink" title="其他主题"></a>其他主题</h3><p>首先可以发现主题的存储是通过 ModSetup 来注册的，注册项的名称是 <code>UiLauncherThemeHide2</code> 。</p>
+<p>这里给出注册代码：</p>
+<div class="code-container" data-rel="Vbnet"><figure class="iseeu highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Me</span>.SetupDict = <span class="built_in">New</span> Dictionary(<span class="keyword">Of</span> <span class="type">String</span>, ModSetup.SetupEntry)() <span class="keyword">From</span> &#123; ...&#123; <span class="string">&quot;UiLauncherThemeHide2&quot;</span>, <span class="built_in">New</span> ModSetup.SetupEntry(<span class="string">&quot;0|1|2|3|4&quot;</span>, ModSetup.SetupSource.Registry, <span class="literal">True</span>) &#125;  ...&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>可以看到最后一个参数值为 True ，阅读 SetupEntry 的初始化函数定义：</p>
+<div class="code-container" data-rel="Vbnet"><figure class="iseeu highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Public</span> <span class="keyword">Sub</span> <span class="built_in">New</span>(Value <span class="keyword">As</span> <span class="type">Object</span>, <span class="keyword">Optional</span> Source <span class="keyword">As</span> <span class="type">Object</span> = <span class="number">0</span>, <span class="keyword">Optional</span> Encoded <span class="keyword">As</span> <span class="type">Object</span> = <span class="literal">False</span>)</span><br></pre></td></tr></table></figure></div>
+
+<p>发现最后一个参数为 Encoded，也就是进行了加密。下方调用了 <code>ModSecret.SecretEncrypt</code> 这个函数，我们直接看代码：</p>
+<div class="code-container" data-rel="Vbnet"><figure class="iseeu highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&#x27; Token: 0x06000612 RID: 1554 RVA: 0x00035B34 File Offset: 0x00033D34</span></span><br><span class="line"><span class="keyword">Friend</span> <span class="keyword">Function</span> SecretEncrypt(SourceString <span class="keyword">As</span> <span class="type">String</span>, <span class="keyword">Optional</span> <span class="keyword">Key</span> <span class="keyword">As</span> <span class="type">String</span> = <span class="string">&quot;&quot;</span>) <span class="keyword">As</span> <span class="type">String</span></span><br><span class="line">    <span class="keyword">Key</span> = ModSecret.SecretKeyGet(<span class="keyword">Key</span>)</span><br><span class="line">    <span class="keyword">Dim</span> bytes <span class="keyword">As</span> <span class="type">Byte</span>() = Encoding.UTF8.GetBytes(<span class="keyword">Key</span>)</span><br><span class="line">    <span class="keyword">Dim</span> bytes2 <span class="keyword">As</span> <span class="type">Byte</span>() = Encoding.UTF8.GetBytes(<span class="string">&quot;95168702&quot;</span>)</span><br><span class="line">    <span class="keyword">Dim</span> descryptoServiceProvider <span class="keyword">As</span> DESCryptoServiceProvider = <span class="built_in">New</span> DESCryptoServiceProvider()</span><br><span class="line">    <span class="keyword">Dim</span> <span class="keyword">text</span> <span class="keyword">As</span> <span class="type">String</span></span><br><span class="line">    <span class="keyword">Using</span> memoryStream <span class="keyword">As</span> MemoryStream = <span class="built_in">New</span> MemoryStream()</span><br><span class="line">        <span class="keyword">Dim</span> bytes3 <span class="keyword">As</span> <span class="type">Byte</span>() = Encoding.UTF8.GetBytes(SourceString)</span><br><span class="line">        <span class="keyword">Using</span> cryptoStream <span class="keyword">As</span> CryptoStream = <span class="built_in">New</span> CryptoStream(memoryStream, descryptoServiceProvider.CreateEncryptor(bytes, bytes2), CryptoStreamMode.Write)</span><br><span class="line">            cryptoStream.Write(bytes3, <span class="number">0</span>, bytes3.Length)</span><br><span class="line">            cryptoStream.FlushFinalBlock()</span><br><span class="line">            <span class="keyword">text</span> = Convert.ToBase64String(memoryStream.ToArray())</span><br><span class="line">        <span class="keyword">End</span> <span class="keyword">Using</span></span><br><span class="line">    <span class="keyword">End</span> <span class="keyword">Using</span></span><br><span class="line">    <span class="keyword">Return</span> <span class="keyword">text</span></span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Function</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&#x27; Token: 0x06000613 RID: 1555 RVA: 0x00035BEC File Offset: 0x00033DEC</span></span><br><span class="line"><span class="keyword">Friend</span> <span class="keyword">Function</span> SecretDecrypt(SourceString <span class="keyword">As</span> <span class="type">String</span>, <span class="keyword">Optional</span> <span class="keyword">Key</span> <span class="keyword">As</span> <span class="type">String</span> = <span class="string">&quot;&quot;</span>) <span class="keyword">As</span> <span class="type">String</span></span><br><span class="line">    <span class="keyword">Key</span> = ModSecret.SecretKeyGet(<span class="keyword">Key</span>)</span><br><span class="line">    <span class="keyword">Dim</span> bytes <span class="keyword">As</span> <span class="type">Byte</span>() = Encoding.UTF8.GetBytes(<span class="keyword">Key</span>)</span><br><span class="line">    <span class="keyword">Dim</span> bytes2 <span class="keyword">As</span> <span class="type">Byte</span>() = Encoding.UTF8.GetBytes(<span class="string">&quot;95168702&quot;</span>)</span><br><span class="line">    <span class="keyword">Dim</span> descryptoServiceProvider <span class="keyword">As</span> DESCryptoServiceProvider = <span class="built_in">New</span> DESCryptoServiceProvider()</span><br><span class="line">    <span class="keyword">Dim</span> [<span class="type">string</span>] <span class="keyword">As</span> <span class="type">String</span></span><br><span class="line">    <span class="keyword">Using</span> memoryStream <span class="keyword">As</span> MemoryStream = <span class="built_in">New</span> MemoryStream()</span><br><span class="line">        <span class="keyword">Dim</span> array <span class="keyword">As</span> <span class="type">Byte</span>() = Convert.FromBase64String(SourceString)</span><br><span class="line">        <span class="keyword">Using</span> cryptoStream <span class="keyword">As</span> CryptoStream = <span class="built_in">New</span> CryptoStream(memoryStream, descryptoServiceProvider.CreateDecryptor(bytes, bytes2), CryptoStreamMode.Write)</span><br><span class="line">            cryptoStream.Write(array, <span class="number">0</span>, array.Length)</span><br><span class="line">            cryptoStream.FlushFinalBlock()</span><br><span class="line">            [<span class="type">string</span>] = Encoding.UTF8.GetString(memoryStream.ToArray())</span><br><span class="line">        <span class="keyword">End</span> <span class="keyword">Using</span></span><br><span class="line">    <span class="keyword">End</span> <span class="keyword">Using</span></span><br><span class="line">    <span class="keyword">Return</span> [<span class="type">string</span>]</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Function</span></span><br></pre></td></tr></table></figure></div>
+
+<p>这两个函数的逻辑很简单，是 DES 加密，里面要用到这个工具函数：</p>
+<div class="code-container" data-rel="Vbnet"><figure class="iseeu highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Private</span> <span class="keyword">Function</span> SecretKeyGet(<span class="keyword">Key</span> <span class="keyword">As</span> <span class="type">String</span>) <span class="keyword">As</span> <span class="type">String</span></span><br><span class="line">    <span class="keyword">Dim</span> <span class="keyword">text</span> <span class="keyword">As</span> <span class="type">String</span></span><br><span class="line">    <span class="keyword">If</span> ModBase.ApplicationStartTick &lt; <span class="number">1L</span> <span class="keyword">Then</span></span><br><span class="line">        <span class="keyword">text</span> = <span class="string">&quot;00000000&quot;</span></span><br><span class="line">    <span class="keyword">ElseIf</span> <span class="type">String</span>.IsNullOrEmpty(<span class="keyword">Key</span>) <span class="keyword">Then</span></span><br><span class="line">        <span class="keyword">text</span> = <span class="string">&quot;@;$ Abv2&quot;</span> <span class="comment">&#x27;注意这里的空值处理逻辑。</span></span><br><span class="line">    <span class="keyword">Else</span></span><br><span class="line">        <span class="keyword">text</span> = Strings.<span class="keyword">Mid</span>(ModBase.StrFill(Conversions.ToString(ModBase.GetHash(<span class="keyword">Key</span>)), <span class="string">&quot;X&quot;</span>, <span class="number">8</span>), <span class="number">1</span>, <span class="number">8</span>)</span><br><span class="line">    <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">    <span class="keyword">Return</span> <span class="keyword">text</span></span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Function</span></span><br></pre></td></tr></table></figure></div>
+
+<p>而它又要用到以下函数：</p>
+<div class="code-container" data-rel="Vbnet"><figure class="iseeu highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Public</span> <span class="keyword">Function</span> StrFill(Str <span class="keyword">As</span> <span class="type">String</span>, Code <span class="keyword">As</span> <span class="type">String</span>, Length <span class="keyword">As</span> <span class="type">Byte</span>) <span class="keyword">As</span> <span class="type">String</span></span><br><span class="line">    <span class="keyword">Dim</span> <span class="keyword">text</span> <span class="keyword">As</span> <span class="type">String</span></span><br><span class="line">    <span class="keyword">If</span> Str.Length &gt; <span class="built_in">CInt</span>(Length) <span class="keyword">Then</span></span><br><span class="line">        <span class="keyword">text</span> = Strings.<span class="keyword">Mid</span>(Str, <span class="number">1</span>, <span class="built_in">CInt</span>(Length))</span><br><span class="line">    <span class="keyword">Else</span></span><br><span class="line">        <span class="comment">&#x27; The following expression was wrapped in a checked-expression</span></span><br><span class="line">        <span class="keyword">text</span> = Strings.<span class="keyword">Mid</span>(Str.PadRight(<span class="built_in">CInt</span>(Length), Conversions.ToChar(Code)), Str.Length + <span class="number">1</span>) + Str</span><br><span class="line">    <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">    <span class="keyword">Return</span> <span class="keyword">text</span></span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Function</span></span><br><span class="line"><span class="keyword">Public</span> <span class="keyword">Function</span> GetHash(Str <span class="keyword">As</span> <span class="type">String</span>) <span class="keyword">As</span> <span class="type">ULong</span></span><br><span class="line">    <span class="keyword">Dim</span> num <span class="keyword">As</span> <span class="type">ULong</span> = <span class="number">5381UL</span></span><br><span class="line">    <span class="keyword">Dim</span> num2 <span class="keyword">As</span> <span class="type">Integer</span> = Str.Length - <span class="number">1</span></span><br><span class="line">    <span class="keyword">For</span> i <span class="keyword">As</span> <span class="type">Integer</span> = <span class="number">0</span> <span class="keyword">To</span> num2</span><br><span class="line">        num = (num &lt;&lt; <span class="number">5</span>) <span class="built_in">Xor</span> num <span class="built_in">Xor</span> <span class="built_in">CULng</span>(Str(i))</span><br><span class="line">    <span class="keyword">Next</span></span><br><span class="line">    <span class="keyword">Return</span> num <span class="built_in">Xor</span> <span class="number">12218072394304324399UL</span></span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Function</span></span><br></pre></td></tr></table></figure></div>
+
+<p>接下来我们来看看它是如何存储的：</p>
+<div class="code-container" data-rel="Vbnet"><figure class="iseeu highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&#x27; Token: 0x06000619 RID: 1561 RVA: 0x00036778 File Offset: 0x00034978</span></span><br><span class="line"><span class="keyword">Friend</span> <span class="keyword">Function</span> ThemeUnlock(Id <span class="keyword">As</span> <span class="type">Integer</span>, <span class="keyword">Optional</span> ShowDoubleHint <span class="keyword">As</span> <span class="type">Boolean</span> = <span class="literal">True</span>, <span class="keyword">Optional</span> UnlockHint <span class="keyword">As</span> <span class="type">String</span> = <span class="literal">Nothing</span>) <span class="keyword">As</span> <span class="type">Boolean</span></span><br><span class="line">    <span class="keyword">Dim</span> flag <span class="keyword">As</span> <span class="type">Boolean</span></span><br><span class="line">    <span class="keyword">If</span> ModMain.FrmMain <span class="built_in">Is</span> <span class="literal">Nothing</span> <span class="keyword">Then</span></span><br><span class="line">        flag = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">Else</span></span><br><span class="line">        ModBase.Log(<span class="string">&quot;[UI] 解锁隐藏主题：&quot;</span> + Conversions.ToString(Id), ModBase.LogLevel.Normal, <span class="string">&quot;出现错误&quot;</span>)</span><br><span class="line">        <span class="keyword">If</span> Id = <span class="number">8</span> <span class="keyword">Then</span></span><br><span class="line">            <span class="keyword">Throw</span> <span class="built_in">New</span> Exception(<span class="string">&quot;不可使用此方式解锁秋仪金！&quot;</span>)</span><br><span class="line">        <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">        <span class="keyword">Dim</span> list <span class="keyword">As</span> List(<span class="keyword">Of</span> <span class="type">String</span>) = <span class="built_in">New</span> List(<span class="keyword">Of</span> <span class="type">String</span>)(ModBase.Setup.[<span class="keyword">Get</span>](<span class="string">&quot;UiLauncherThemeHide2&quot;</span>, <span class="literal">Nothing</span>).ToString().Split(<span class="string">&quot;|&quot;</span>))</span><br><span class="line">        <span class="keyword">If</span> list.Contains(Id.ToString()) <span class="keyword">Then</span></span><br><span class="line">            <span class="keyword">If</span> ShowDoubleHint <span class="keyword">Then</span></span><br><span class="line">                ModMain.Hint(<span class="string">&quot;该隐藏主题已被解锁！&quot;</span>, ModMain.HintType.Blue, <span class="literal">True</span>)</span><br><span class="line">            <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">            flag = <span class="literal">False</span></span><br><span class="line">        <span class="keyword">Else</span></span><br><span class="line">            <span class="keyword">If</span> UnlockHint <span class="built_in">IsNot</span> <span class="literal">Nothing</span> <span class="keyword">Then</span></span><br><span class="line">                ModMain.Hint(UnlockHint, ModMain.HintType.Green, <span class="literal">False</span>)</span><br><span class="line">            <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">            list.Add(Id.ToString())</span><br><span class="line">            ModBase.Setup.[<span class="keyword">Set</span>](<span class="string">&quot;UiLauncherThemeHide2&quot;</span>, list.ToArray().<span class="keyword">Join</span>(<span class="string">&quot;|&quot;</span>), <span class="literal">False</span>, <span class="literal">Nothing</span>)</span><br><span class="line">            ModSecret.ThemeCheckAll(<span class="literal">True</span>)</span><br><span class="line">            flag = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">    <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">    <span class="keyword">Return</span> flag</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Function</span></span><br></pre></td></tr></table></figure></div>
+
+<p>这里可以看到它使用<code>|</code>分割每个主题编号，因此我们只需要把以下内容：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0|1|2|3|4|5|6|7|9|10|11|12|13</span><br></pre></td></tr></table></figure></div>
+
+<p>加密并写入注册表<code>UiLauncherThemeHide2</code>即可解锁所有主题（这里不写8是因为8代表秋仪金）。</p>
+<p>另外，这里 <code>SecretEncrypt</code> 函数的调用藏得很深，在<code>ModSetup</code>中的<code>Set</code>方法里，如下：</p>
+<div class="code-container" data-rel="Vbnet"><figure class="iseeu highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Value = ModSecret.SecretEncrypt(Conversions.ToString(Value), <span class="string">&quot;PCL&quot;</span> + ModBase.Identify)</span><br></pre></td></tr></table></figure></div>
+
+<p>这里用到了<code>ModBase.Identity</code>作为<code>Key</code>的一部分，因此我们顺便来看看识别码的生成逻辑（在<code>ModSecret</code>中）：</p>
+<div class="code-container" data-rel="Vbnet"><figure class="iseeu highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&#x27; Token: 0x0600060D RID: 1549 RVA: 0x00035398 File Offset: 0x00033598</span></span><br><span class="line"><span class="keyword">Friend</span> <span class="keyword">Function</span> SecretGetIdentify() <span class="keyword">As</span> <span class="type">String</span></span><br><span class="line">    <span class="keyword">Dim</span> <span class="keyword">text</span> <span class="keyword">As</span> <span class="type">String</span></span><br><span class="line">    <span class="keyword">Try</span></span><br><span class="line">        <span class="keyword">If</span> ModBase.ApplicationStartTick &lt; <span class="number">1L</span> <span class="keyword">Then</span></span><br><span class="line">            <span class="keyword">text</span> = <span class="string">&quot;0000-0000-0000-0000&quot;</span></span><br><span class="line">        <span class="keyword">Else</span></span><br><span class="line">            <span class="keyword">Dim</span> text2 <span class="keyword">As</span> <span class="type">String</span></span><br><span class="line">            <span class="keyword">Try</span></span><br><span class="line">                text2 = MyWpfExtension.Computer.Registry.GetValue(<span class="type">String</span>.Format(<span class="string">&quot;HKEY_LOCAL_MACHINE\SYSTEM\Har&#123;0&#125;wareConfig&quot;</span>, <span class="string">&quot;D&quot;</span>.ToLower()), <span class="string">&quot;LastConfig&quot;</span>, <span class="string">&quot;Unknown&quot;</span>).ToString().ToUpper().Trim(<span class="built_in">New</span> <span class="type">Char</span>() &#123; <span class="string">&quot;&#123;&quot;c</span>, <span class="string">&quot;&#125;&quot;c</span> &#125;)</span><br><span class="line">            <span class="keyword">Catch</span> ex <span class="keyword">As</span> Exception</span><br><span class="line">                ModBase.Log(ex, <span class="string">&quot;获取主板标识码失败&quot;</span>, ModBase.LogLevel.Debug, <span class="string">&quot;出现错误&quot;</span>)</span><br><span class="line">                text2 = <span class="string">&quot;Unknown&quot;</span></span><br><span class="line">            <span class="keyword">End</span> <span class="keyword">Try</span></span><br><span class="line">            <span class="keyword">Dim</span> text3 <span class="keyword">As</span> <span class="type">String</span></span><br><span class="line">            <span class="keyword">Try</span></span><br><span class="line">                text3 = Conversions.ToString(ModBase.Setup.[<span class="keyword">Get</span>](<span class="string">&quot;Identify&quot;</span>, <span class="literal">Nothing</span>))</span><br><span class="line">            <span class="keyword">Catch</span> ex2 <span class="keyword">As</span> Exception</span><br><span class="line">                text3 = <span class="string">&quot;&quot;</span></span><br><span class="line">            <span class="keyword">End</span> <span class="keyword">Try</span></span><br><span class="line">            <span class="keyword">If</span> text3.Length &lt; <span class="number">3</span> <span class="keyword">Then</span></span><br><span class="line">                text3 = Conversions.ToString(ModBase.GetTimeTick()) + Conversions.ToString(MyWpfExtension.Computer.Info.AvailablePhysicalMemory)</span><br><span class="line">                ModBase.Setup.[<span class="keyword">Set</span>](<span class="string">&quot;Identify&quot;</span>, text3, <span class="literal">False</span>, <span class="literal">Nothing</span>)</span><br><span class="line">            <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">            <span class="keyword">Dim</span> text4 <span class="keyword">As</span> <span class="type">String</span> = ModBase.StrFill(ModBase.GetHash(text2 + text3).ToString(<span class="string">&quot;X&quot;</span>), <span class="string">&quot;7&quot;</span>, <span class="number">16</span>)</span><br><span class="line">            <span class="keyword">text</span> = <span class="type">String</span>.Format(<span class="string">&quot;&#123;0&#125;-&#123;1&#125;-&#123;2&#125;-&#123;3&#125;&quot;</span>, <span class="built_in">New</span> <span class="type">Object</span>() &#123; Strings.<span class="keyword">Mid</span>(text4, <span class="number">5</span>, <span class="number">4</span>), Strings.<span class="keyword">Mid</span>(text4, <span class="number">13</span>, <span class="number">4</span>), Strings.<span class="keyword">Mid</span>(text4, <span class="number">1</span>, <span class="number">4</span>), Strings.<span class="keyword">Mid</span>(text4, <span class="number">9</span>, <span class="number">4</span>) &#125;)</span><br><span class="line">        <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">    <span class="keyword">Catch</span> ex3 <span class="keyword">As</span> Exception</span><br><span class="line">        ModBase.Log(ex3, <span class="string">&quot;PCL 无法获取设备标识码，这可能会导致部分设置无法正常存储。&quot;</span> &amp; vbCrLf &amp; vbCrLf &amp; <span class="string">&quot;详细的错误信息&quot;</span>, ModBase.LogLevel.Feedback, <span class="string">&quot;获取标识码失败&quot;</span>)</span><br><span class="line">        <span class="keyword">text</span> = <span class="string">&quot;0000-0000-0000-0000&quot;</span></span><br><span class="line">    <span class="keyword">End</span> <span class="keyword">Try</span></span><br><span class="line">    <span class="keyword">Return</span> <span class="keyword">text</span></span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Function</span></span><br></pre></td></tr></table></figure></div>
+
+<p>这里根据的是内存和主板信息，所以可以很轻松的在其他语言还原这段逻辑，例如 Python：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">secret_get_unique_address</span>() -&gt; <span class="built_in">str</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        board_id = read_reg(</span><br><span class="line">            winreg.HKEY_LOCAL_MACHINE,</span><br><span class="line">            <span class="string">r&quot;SYSTEM\HardwareConfig&quot;</span>,</span><br><span class="line">            <span class="string">&quot;LastConfig&quot;</span>,</span><br><span class="line">            <span class="string">&quot;Unknown&quot;</span></span><br><span class="line">        ).upper().strip(<span class="string">&quot;&#123;&#125;&quot;</span>)</span><br><span class="line"></span><br><span class="line">        identify = read_reg(</span><br><span class="line">            winreg.HKEY_CURRENT_USER,</span><br><span class="line">            <span class="string">r&quot;Software\PCL&quot;</span>,</span><br><span class="line">            <span class="string">&quot;Identify&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&quot;</span></span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(identify) &lt; <span class="number">3</span>:</span><br><span class="line">            tick = <span class="built_in">int</span>(time.time() * <span class="number">1000</span>)</span><br><span class="line">            mem = psutil.virtual_memory().available</span><br><span class="line">            identify = <span class="string">f&quot;<span class="subst">&#123;tick&#125;</span><span class="subst">&#123;mem&#125;</span>&quot;</span></span><br><span class="line"></span><br><span class="line">            write_reg(</span><br><span class="line">                winreg.HKEY_CURRENT_USER,</span><br><span class="line">                <span class="string">r&quot;Software\PCL&quot;</span>,</span><br><span class="line">                <span class="string">&quot;Identify&quot;</span>,</span><br><span class="line">                identify</span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line">        h = <span class="built_in">int</span>(get_hash_str(board_id + identify))</span><br><span class="line">        hex_str = str_fill(<span class="built_in">format</span>(h, <span class="string">&quot;X&quot;</span>), <span class="string">&quot;0&quot;</span>, <span class="number">16</span>)</span><br><span class="line"></span><br><span class="line">        result = (</span><br><span class="line">            <span class="string">f&quot;<span class="subst">&#123;hex_str[<span class="number">4</span>:<span class="number">8</span>]&#125;</span>-&quot;</span></span><br><span class="line">            <span class="string">f&quot;<span class="subst">&#123;hex_str[<span class="number">12</span>:<span class="number">16</span>]&#125;</span>-&quot;</span></span><br><span class="line">            <span class="string">f&quot;<span class="subst">&#123;hex_str[<span class="number">0</span>:<span class="number">4</span>]&#125;</span>-&quot;</span></span><br><span class="line">            <span class="string">f&quot;<span class="subst">&#123;hex_str[<span class="number">8</span>:<span class="number">12</span>]&#125;</span>&quot;</span></span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;ERROR get_unique_addr: <span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line">        print_exc()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;WARNING get_unique_addr: Returning value 0000-0000-0000-0000 which is invalid.&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;0000-0000-0000-0000&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>这样，我们就还原了主题生成与解锁验证所需的全部流程逻辑。</p>
+<p>通过上面给过的 <code>SecretEncrypt</code> 函数，我们可以轻松写一个用来生成主题注册表项的 Python 小脚本。相关代码已经开源在 <a class="link"   target="_blank" rel="noopener" href="https://github.com/Ignis-Studio/PCLThemeUnlock" >GitHub<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> ，其中的<code>main.py</code>就可以生成注册表项了（生成识别码的逻辑单独放在<code>get_unique_address.py</code>中）。</p>
+<p>概括一下所有流程：</p>
+<p>原字符串（用<code>|</code>分割的主题编号）&#x3D;&gt; 使用<code>SecretEncrypt</code>加密（密钥为<code>PCL</code>+识别码） &#x3D;&gt; 写入注册表项<code>UiLauncherThemeHide2</code></p>
+<p>至此，我们已经破解了除秋仪金的大部分主题。</p>
+<h3 id="秋仪金"><a href="#秋仪金" class="headerlink" title="秋仪金"></a>秋仪金</h3><p>之所以把秋仪金放在后面讲，是因为它更难破解。</p>
+<p>我们先来观察秋仪金的解锁和验证逻辑：</p>
+<div class="code-container" data-rel="Vbnet"><figure class="iseeu highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&#x27; Token: 0x0600061A RID: 1562 RVA: 0x00036848 File Offset: 0x00034A48</span></span><br><span class="line"><span class="keyword">Friend</span> <span class="keyword">Function</span> ThemeCheckGold(<span class="keyword">Optional</span> Code <span class="keyword">As</span> <span class="type">String</span> = <span class="literal">Nothing</span>) <span class="keyword">As</span> <span class="type">Boolean</span></span><br><span class="line">    <span class="keyword">Dim</span> flag <span class="keyword">As</span> <span class="type">Boolean</span></span><br><span class="line">    <span class="keyword">Try</span></span><br><span class="line">        <span class="keyword">Dim</span> <span class="keyword">text</span> <span class="keyword">As</span> <span class="type">String</span> = (<span class="keyword">If</span>(Code, ModBase.Setup.[<span class="keyword">Get</span>](<span class="string">&quot;UiLauncherThemeGold&quot;</span>, <span class="literal">Nothing</span>))).ToString().Replace(<span class="string">&quot;#&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">        flag = ModSecret.SecretRsaVerify(<span class="string">&quot;Gold|0|&quot;</span> + ModBase.Identify.Replace(<span class="string">&quot;-&quot;</span>, <span class="string">&quot;&quot;</span>), <span class="keyword">text</span>)</span><br><span class="line">    <span class="keyword">Catch</span> ex <span class="keyword">As</span> Exception</span><br><span class="line">        ModBase.Log(ex, <span class="string">&quot;检查秋仪金失败&quot;</span>, ModBase.LogLevel.Feedback, <span class="string">&quot;出现错误&quot;</span>)</span><br><span class="line">        flag = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">End</span> <span class="keyword">Try</span></span><br><span class="line">    <span class="keyword">Return</span> flag</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Function</span></span><br><span class="line"><span class="keyword">Friend</span> <span class="keyword">Function</span> SecretRsaVerify(SourceString <span class="keyword">As</span> <span class="type">String</span>, Sign <span class="keyword">As</span> <span class="type">String</span>) <span class="keyword">As</span> <span class="type">Boolean</span></span><br><span class="line">    <span class="keyword">Dim</span> flag <span class="keyword">As</span> <span class="type">Boolean</span></span><br><span class="line">    <span class="keyword">Try</span></span><br><span class="line">        <span class="keyword">If</span> ModBase.ApplicationStartTick &lt; <span class="number">1L</span> <span class="keyword">Then</span></span><br><span class="line">            flag = <span class="literal">False</span></span><br><span class="line">        <span class="keyword">Else</span></span><br><span class="line">            <span class="keyword">Dim</span> rsacryptoServiceProvider <span class="keyword">As</span> RSACryptoServiceProvider = <span class="built_in">New</span> RSACryptoServiceProvider(<span class="number">512</span>)</span><br><span class="line">            rsacryptoServiceProvider.FromXmlString(ModSecret.SecretRsaPublicKey.Replace(<span class="string">&quot;!&quot;</span>, <span class="string">&quot;&quot;</span>).Replace(<span class="string">&quot;$&quot;</span>, <span class="string">&quot;+&quot;</span>) + <span class="string">&quot;/R1Frckd3/Sn+Zsx9aD6U2f&quot;</span> + Conversions.ToString(Math.Round(<span class="number">84</span>D)) + <span class="string">&quot;SdWMDlrRY9DfhQ==&lt;/Modulus&gt;&lt;Exponent&gt;AQAB&lt;\Exponent&gt;&lt;\RSAKeyValue&gt;&quot;</span>.Replace(<span class="string">&quot;\&quot;</span>, <span class="string">&quot;/&quot;</span>))</span><br><span class="line">            flag = rsacryptoServiceProvider.VerifyData(Encoding.[<span class="keyword">Default</span>].GetBytes(SourceString), <span class="built_in">GetType</span>(SHA256), Convert.FromBase64String(Sign))</span><br><span class="line">        <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">    <span class="keyword">Catch</span> ex <span class="keyword">As</span> Exception</span><br><span class="line">        flag = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">End</span> <span class="keyword">Try</span></span><br><span class="line">    <span class="keyword">Return</span> flag</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Function</span></span><br></pre></td></tr></table></figure></div>
+
+<p>这里可以发现验证使用的是 <a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/RSA_cryptosystem" >RSA 非对称加密<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> ，严格意义上来说除非拥有私钥，无法进行签名。但真的是这样吗？我们不能畏难。仔细阅读，发现其中使用的是 RSA 512。这是早已被淘汰且被证实不安全的 RSA 密钥长度。</p>
+<h3 id="私钥的破解过程"><a href="#私钥的破解过程" class="headerlink" title="私钥的破解过程"></a>私钥的破解过程</h3><p>接下来讲解破解 RSA 公钥的过程，不感兴趣的同学可以直接跳过。</p>
+<p>首先观察程序，拿到其中的公钥。</p>
+<div class="code-container" data-rel="Vbnet"><figure class="iseeu highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&#x27; Token: 0x04000409 RID: 1033</span></span><br><span class="line"><span class="keyword">Friend</span> SecretRsaPublicKey <span class="keyword">As</span> <span class="type">String</span> = <span class="string">&quot;&lt;RS!AKeyValu!e&gt;&lt;Mo!dul!us&gt;0L/cZoJUyBRAIE8OKiG8$qYOytXD$azFCBsmOuQra&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>和处理流程：</p>
+<div class="code-container" data-rel="Vbnet"><figure class="iseeu highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsacryptoServiceProvider.FromXmlString(ModSecret.SecretRsaPublicKey.Replace(<span class="string">&quot;!&quot;</span>, <span class="string">&quot;&quot;</span>).Replace(<span class="string">&quot;$&quot;</span>, <span class="string">&quot;+&quot;</span>) + <span class="string">&quot;/R1Frckd3/Sn+Zsx9aD6U2f&quot;</span> + Conversions.ToString(Math.Round(<span class="number">84</span>D)) + <span class="string">&quot;SdWMDlrRY9DfhQ==&lt;/Modulus&gt;&lt;Exponent&gt;AQAB&lt;\Exponent&gt;&lt;\RSAKeyValue&gt;&quot;</span>.Replace(<span class="string">&quot;\&quot;</span>, <span class="string">&quot;/&quot;</span>))</span><br></pre></td></tr></table></figure></div>
+
+<p>进行还原后发现公钥的长度不对头，因此再次观察，发现在<code>ModSecret</code>初始化时非常隐蔽的对<code>SecretRsaPublicKey</code>的值做了修改，如下：</p>
+<div class="code-container" data-rel="Vbnet"><figure class="iseeu highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ModSecret.SecretRsaPublicKey = ModSecret.SecretRsaPublicKey + <span class="string">&quot;qgaq&quot;</span>.ToUpper() + <span class="string">&quot;1S&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>（在<code>SecretOnApplicationStart</code>函数的末尾，我花了很久才找到……）</p>
+<p>因此可还原出 RSA 公钥：</p>
+<div class="code-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">RSAKeyValue</span>&gt;</span><span class="tag">&lt;<span class="name">Modulus</span>&gt;</span>0L/cZoJUyBRAIE8OKiG8+qYOytXD+azFCBsmOuQraQGAQ1S/R1Frckd3/Sn+Zsx9aD6U2f84SdWMDlrRY9DfhQ==<span class="tag">&lt;/<span class="name">Modulus</span>&gt;</span><span class="tag">&lt;<span class="name">Exponent</span>&gt;</span>AQAB<span class="tag">&lt;/<span class="name">Exponent</span>&gt;</span><span class="tag">&lt;/<span class="name">RSAKeyValue</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>提取出模数并转换为十进制，以便因式分解：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10933096180346127695081099708243448444467282953548374941920090181459099156162822929023598405197953653590303042837761938376403948824104176832254366232665989</span><br></pre></td></tr></table></figure></div>
+
+<p>这个数虽然可以使用 yafu 因式分解，但是这太依赖性能，需要跑整整一个月。鉴于这个数相对较小，因此我们可以去 <a class="link"   target="_blank" rel="noopener" href="https://factordb.com/" >FactorDB<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 上找一找，能找到的概率很大。</p>
+<p>果不其然：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/pcl-reflect-1.png"
+                      alt="pcl-reflect-1.png"
+                ></p>
+<p>这个数的状态是 FF（<strong>F</strong>ully <strong>F</strong>actored），也就是已经被分解过了。看到后面的两个 Number 值，就是这里的唯二两个因数。</p>
+<p>通过两个因数（p）还原私钥的过程太繁琐，我这里不再赘述，感兴趣的同学可以自己搜索。还原后可以再转换为通用的 PEM 格式，方便后续使用。这里我就不把私钥放出来了。</p>
+<h3 id="私钥验证"><a href="#私钥验证" class="headerlink" title="私钥验证"></a>私钥验证</h3><p>现在我们已经有了私钥，下一步就是根据原文生成签名。</p>
+<p>先看看函数调用：</p>
+<div class="code-container" data-rel="Vbnet"><figure class="iseeu highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag = ModSecret.SecretRsaVerify(<span class="string">&quot;Gold|0|&quot;</span> + ModBase.Identify.Replace(<span class="string">&quot;-&quot;</span>, <span class="string">&quot;&quot;</span>), <span class="keyword">text</span>)</span><br></pre></td></tr></table></figure></div>
+
+<p>这里的原文是<code>Gold|0|</code>+识别码。识别码生成流程上面说过了。</p>
+<p>由此我们只需要使用 RSA 对 <code>Gold|0|</code>+识别码 这个字符串进行签名即可。</p>
+<p>RSA 签名相关代码放在了  GitHub 仓库下的 gold.py（私钥已经放在 repo secret 里面了）。</p>
+<h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p>更新密钥的验证也需要使用 RSA 生成签名，这在上面已经说过。</p>
+<p>这里放上验证逻辑：</p>
+<div class="code-container" data-rel="Vbnet"><figure class="iseeu highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CS$&lt;&gt;<span class="number">8__l</span>ocals1.$VB$Local_NewUniqueMark = ModSecret.GetUniqueMark(ReceivedKey)</span><br><span class="line"><span class="keyword">Dim</span> array <span class="keyword">As</span> <span class="type">String</span>() = ReceivedKey.Replace(<span class="string">&quot;1&quot;</span>, <span class="string">&quot;=&quot;</span>).Replace(<span class="string">&quot;-&quot;</span>, <span class="string">&quot;1&quot;</span>).Replace(<span class="string">&quot;0&quot;</span>, <span class="string">&quot;\&quot;</span>).Replace(<span class="string">&quot;*&quot;</span>, <span class="string">&quot;0&quot;</span>).Split(<span class="string">&quot;\&quot;</span>)</span><br><span class="line">CS$&lt;&gt;<span class="number">8__l</span>ocals1.$VB$Local_UpdateKey = ModSecret.SecretDecrypt(array(<span class="number">0</span>), array(<span class="number">1</span>))</span><br><span class="line"><span class="keyword">If</span> ModSecret.SecretRsaVerify(CS$&lt;&gt;<span class="number">8__l</span>ocals1.$VB$Local_UpdateKey + array(<span class="number">1</span>) + ModBase.Identify, array(<span class="number">2</span>)) <span class="built_in">OrElse</span> <span class="built_in">Not</span> ModSecret.SecretRsaVerify(ModBase.Identify + CS$&lt;&gt;<span class="number">8__l</span>ocals1.$VB$Local_UpdateKey + array(<span class="number">1</span>), array(<span class="number">2</span>)) <span class="keyword">Then</span></span><br><span class="line">    <span class="keyword">Throw</span> <span class="built_in">New</span> Exception(<span class="string">&quot;更新密钥验证失败。&quot;</span>)</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">If</span></span><br></pre></td></tr></table></figure></div>
+
+<p>这里的<code>CS$&lt;&gt;8__locals1.$VB$Local_UpdateKey</code>，为了不与更新密钥本身相混淆，我们称它作 “remote update key”，即远程更新密钥。</p>
+<p>因此我们可以获取更新密钥的结构：</p>
+<p>识别码 + 远程更新密钥 + array(1)</p>
+<p>这里的 array(1) 是自验证，可以随便取一个 base64，因此是盐值（？）。</p>
+<p>将它们按顺序组合在一起并使用<code>\</code>做分割，即可获取更新密钥明文。</p>
+<p>对该明文使用 RSA 签名即可获取更新密钥。</p>
+<p>此处的远程更新密钥没有直接说，但是瞎填会导致提示”更新密钥失效“，再次阅读发现它参与了更新 URL 的构成，因此如果填错会导致 404。我们只能通过解密一个已知对本机有效的更新密钥来还原出远程更新密钥的值。</p>
+<p>这里进行还原，可以得到这个值为<code>linkv3</code>（在 2025&#x2F;8&#x2F;12 获取）或<code>linkv4</code>（在 2025&#x2F;11&#x2F;3 获取），并且有且只有这两个值才能使得更新成功进行。</p>
+<p>该段逻辑已经放在了 GitHub 仓库下的 <code>update_key.py</code> 中。</p>
+<h2 id="网络鉴权"><a href="#网络鉴权" class="headerlink" title="网络鉴权"></a>网络鉴权</h2><p>这部分主要依赖以下两个函数：</p>
+<div class="code-container" data-rel="Vbnet"><figure class="iseeu highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Friend</span> <span class="keyword">Function</span> SecretCdnSign(UrlWithMark <span class="keyword">As</span> <span class="type">String</span>) <span class="keyword">As</span> <span class="type">String</span></span><br><span class="line">    <span class="keyword">Dim</span> <span class="keyword">text</span> <span class="keyword">As</span> <span class="type">String</span></span><br><span class="line">    <span class="keyword">If</span> ModBase.ApplicationStartTick &lt; <span class="number">1L</span> <span class="keyword">Then</span></span><br><span class="line">        <span class="keyword">text</span> = UrlWithMark</span><br><span class="line">    <span class="keyword">ElseIf</span> <span class="built_in">Not</span> UrlWithMark.EndsWithF(<span class="string">&quot;&#123;CDN&#125;&quot;</span>, <span class="literal">False</span>) <span class="keyword">Then</span></span><br><span class="line">        <span class="keyword">text</span> = UrlWithMark</span><br><span class="line">    <span class="keyword">Else</span></span><br><span class="line">        <span class="keyword">Dim</span> text2 <span class="keyword">As</span> <span class="type">String</span> = UrlWithMark.Replace(<span class="string">&quot;&#123;CDN&#125;&quot;</span>, <span class="string">&quot;&quot;</span>).Replace(<span class="string">&quot; &quot;</span>, <span class="string">&quot;%20&quot;</span>)</span><br><span class="line">        <span class="keyword">Dim</span> text3 <span class="keyword">As</span> <span class="type">String</span> = ModBase.StrFill(ModBase.RandomInteger(<span class="number">0</span>, <span class="number">2147483645</span>).ToString(<span class="string">&quot;x&quot;</span>), <span class="string">&quot;0&quot;</span>, <span class="number">8</span>)</span><br><span class="line">        <span class="keyword">Dim</span> text4 <span class="keyword">As</span> <span class="type">String</span> = ModSecret.SecretDecrypt(<span class="string">&quot;VwHB1je1uabAr0gKijpFaQ==&quot;</span>, <span class="string">&quot;CDN&quot;</span>)</span><br><span class="line">        <span class="keyword">Dim</span> text5 <span class="keyword">As</span> <span class="type">String</span> = Conversions.ToString(ModBase.GetUnixTimestamp())</span><br><span class="line">        <span class="keyword">Dim</span> text6 <span class="keyword">As</span> <span class="type">String</span> = text2.Substring(text2.IndexOfF(<span class="string">&quot;://&quot;</span>, <span class="literal">False</span>) + <span class="number">3</span>)</span><br><span class="line">        text6 = text6.Substring(text6.IndexOfF(<span class="string">&quot;/&quot;</span>, <span class="literal">False</span>))</span><br><span class="line">        <span class="keyword">Dim</span> stringMD <span class="keyword">As</span> <span class="type">String</span> = ModBase.GetStringMD5(<span class="built_in">New</span> <span class="type">String</span>() &#123; text6, text5, text3, <span class="string">&quot;0&quot;</span>, text4 &#125;.<span class="keyword">Join</span>(<span class="string">&quot;-&quot;</span>))</span><br><span class="line">        <span class="keyword">text</span> = text2 + <span class="keyword">If</span>(text2.Contains(<span class="string">&quot;?&quot;</span>), <span class="string">&quot;&amp;&quot;</span>, <span class="string">&quot;?&quot;</span>) + <span class="string">&quot;sign=&quot;</span> + <span class="built_in">New</span> <span class="type">String</span>() &#123; text5, text3, <span class="string">&quot;0&quot;</span>, stringMD &#125;.<span class="keyword">Join</span>(<span class="string">&quot;-&quot;</span>)</span><br><span class="line">    <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">    <span class="keyword">Return</span> <span class="keyword">text</span></span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Function</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">Friend</span> <span class="keyword">Sub</span> SecretHeadersSign(Url <span class="keyword">As</span> <span class="type">String</span>, <span class="keyword">ByRef</span> Req <span class="keyword">As</span> HttpRequestMessage, <span class="keyword">Optional</span> SimulateBrowserHeaders <span class="keyword">As</span> <span class="type">Boolean</span> = <span class="literal">False</span>)</span><br><span class="line">    <span class="keyword">If</span> ModBase.ApplicationStartTick &gt;= <span class="number">1L</span> <span class="keyword">Then</span></span><br><span class="line">        <span class="keyword">If</span> <span class="built_in">Not</span> Req.Headers.UserAgent.Any() <span class="keyword">Then</span></span><br><span class="line">            <span class="keyword">If</span> <span class="built_in">Not</span> Url.Contains(<span class="string">&quot;baidupcs.com&quot;</span>) <span class="built_in">AndAlso</span> <span class="built_in">Not</span> Url.Contains(<span class="string">&quot;baidu.com&quot;</span>) <span class="keyword">Then</span></span><br><span class="line">                <span class="keyword">If</span> SimulateBrowserHeaders <span class="keyword">Then</span></span><br><span class="line">                    Req.Headers.Add(<span class="string">&quot;User-Agent&quot;</span>, <span class="type">String</span>.Format(<span class="string">&quot;PCL2/&#123;0&#125; Mozilla/5.0 AppleWebKit/537.36 Chrome/63.0.3239.132 Safari/537.36&quot;</span>, <span class="string">&quot;2.12.1.0&quot;</span>))</span><br><span class="line">                <span class="keyword">Else</span></span><br><span class="line">                    Req.Headers.Add(<span class="string">&quot;User-Agent&quot;</span>, <span class="type">String</span>.Format(<span class="string">&quot;PCL2/&#123;0&#125;&quot;</span>, <span class="string">&quot;2.12.1.0&quot;</span>))</span><br><span class="line">                <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">            <span class="keyword">Else</span></span><br><span class="line">                Req.Headers.Add(<span class="string">&quot;User-Agent&quot;</span>, <span class="string">&quot;LogStatistic&quot;</span>)</span><br><span class="line">            <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">        <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">        <span class="keyword">If</span> <span class="built_in">Not</span> SimulateBrowserHeaders <span class="keyword">Then</span></span><br><span class="line">            Req.Headers.Referrer = <span class="built_in">New</span> Uri(<span class="type">String</span>.Format(<span class="string">&quot;http://&#123;0&#125;.pcl2.server/&quot;</span>, <span class="number">378</span>))</span><br><span class="line">        <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">        <span class="keyword">If</span> Url.Contains(ModSecret.SecretDecrypt(<span class="string">&quot;kSHbgKrsiOuHY81i63QtJevaX2+IWvVT&quot;</span>, <span class="string">&quot;&quot;</span>)) <span class="keyword">Then</span></span><br><span class="line">            Req.Headers.Add(ModSecret.SecretDecrypt(<span class="string">&quot;hlBzlKCNcyEYEaSOd0Vx0w==&quot;</span>, <span class="string">&quot;&quot;</span>), ModSecret.SecretDecrypt(<span class="string">&quot;SA+taZSvSkfRoq0fW5pnIpFzDGDck82KzMPbuglfAqrAbQAOwcZXBXVQVzenSNP14fnexB+G1bV/ufvjrtpiUA==&quot;</span>, <span class="string">&quot;&quot;</span>))</span><br><span class="line">        <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">    <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Sub</span></span><br></pre></td></tr></table></figure></div>
+
+<p>在上面<code>SecretHeadersSign</code>里面最后一个 If 条件判断的字符串解密出来是<code>curseforge.com</code>……</p>
+<p><code>UrlWithMark</code>里面的”mark“指的是<code>&#123;CDN&#125;</code>标识，这个表示最终会被替换为一串<code>sign=...</code>的签名字符串。</p>
+<p>签名的逻辑太过繁杂了，这里不说了，用到的工具函数前面都讲过。</p>
+<p>该段代码未上传 GitHub。</p>
+<p>但是，我们来看看里面名叫<code>DownloadLatestPCL</code>函数，如果能直接下载更新包，那么都用不着生成更新密钥了，岂不美哉：</p>
+<div class="code-container" data-rel="Vbnet"><figure class="iseeu highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Friend</span> <span class="keyword">Sub</span> DownloadLatestPCL(<span class="keyword">Optional</span> LoaderToSyncProgress <span class="keyword">As</span> ModLoader.LoaderBase = <span class="literal">Nothing</span>)</span><br><span class="line">    <span class="keyword">Dim</span> objectValue <span class="keyword">As</span> <span class="type">Object</span> = RuntimeHelpers.GetObjectValue(<span class="keyword">If</span>(File.Exists(ModBase.PathTemp + <span class="string">&quot;Latest.exe&quot;</span>), ModBase.Setup.[<span class="keyword">Get</span>](<span class="string">&quot;SystemHighestSavedBetaVersionReg&quot;</span>, <span class="literal">Nothing</span>), <span class="number">0</span>))</span><br><span class="line">    <span class="keyword">Dim</span> <span class="keyword">text</span> <span class="keyword">As</span> <span class="type">String</span> = ModBase.ReadFile(ModBase.PathTemp + <span class="string">&quot;Cache\Notice.cfg&quot;</span>, <span class="literal">Nothing</span>)</span><br><span class="line">    <span class="keyword">Dim</span> num <span class="keyword">As</span> <span class="type">Integer</span></span><br><span class="line">    <span class="keyword">If</span> <span class="keyword">text</span>.Split(<span class="string">&quot;|&quot;</span>).Count() &lt; <span class="number">3</span> <span class="keyword">Then</span></span><br><span class="line">        num = <span class="number">0</span></span><br><span class="line">    <span class="keyword">Else</span></span><br><span class="line">        num = Conversions.ToInteger(<span class="keyword">text</span>.Split(<span class="string">&quot;|&quot;</span>)(<span class="number">2</span>))</span><br><span class="line">    <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">    <span class="keyword">If</span> <span class="built_in">Not</span> Operators.ConditionalCompareObjectGreaterEqual(objectValue, num, <span class="literal">False</span>) <span class="keyword">Then</span></span><br><span class="line">        ModBase.Log(Conversions.ToString(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject(<span class="string">&quot;[Server] 需要下载最新正式版：&quot;</span>, objectValue), <span class="string">&quot; -&gt; &quot;</span>), num)), ModBase.LogLevel.Normal, <span class="string">&quot;出现错误&quot;</span>)</span><br><span class="line">        ModNet.NetDownloadByLoader(<span class="built_in">New</span> <span class="type">String</span>() &#123; <span class="string">&quot;https://github.com/Meloong-Git/PCL/raw/main/%E6%9C%80%E6%96%B0%E6%AD%A3%E5%BC%8F%E7%89%88.zip&quot;</span>, <span class="type">String</span>.Format(<span class="string">&quot;https://pcl2-server-1253424809.file.myqcloud.com/update/&#123;0&#125;.zip&#123;&#123;CDN&#125;&#125;&quot;</span>, <span class="string">&quot;Publi3&quot;</span>) &#125;, ModBase.PathTemp + <span class="string">&quot;Latest.zip&quot;</span>, LoaderToSyncProgress, <span class="built_in">New</span> ModBase.FileChecker(<span class="number">1048576L</span>, -<span class="number">1L</span>, <span class="literal">Nothing</span>, <span class="literal">True</span>, <span class="literal">False</span>), <span class="literal">False</span>)</span><br><span class="line">        ModBase.ExtractFile(ModBase.PathTemp + <span class="string">&quot;Latest.zip&quot;</span>, ModBase.PathTemp, <span class="literal">Nothing</span>, <span class="literal">Nothing</span>)</span><br><span class="line">        File.Delete(ModBase.PathTemp + <span class="string">&quot;Latest.zip&quot;</span>)</span><br><span class="line">        File.Delete(ModBase.PathTemp + <span class="string">&quot;Latest.exe&quot;</span>)</span><br><span class="line">        FileSystem.Rename(ModBase.PathTemp + <span class="string">&quot;Plain Craft Launcher 2.exe&quot;</span>, ModBase.PathTemp + <span class="string">&quot;Latest.exe&quot;</span>)</span><br><span class="line">        ModBase.Setup.[<span class="keyword">Set</span>](<span class="string">&quot;SystemHighestSavedBetaVersionReg&quot;</span>, num, <span class="literal">False</span>, <span class="literal">Nothing</span>)</span><br><span class="line">    <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Sub</span></span><br></pre></td></tr></table></figure></div>
+
+<p>但是……这一部分我虽然还原出了上述两个函数，却仍未能破解出来……</p>
+<p>这就是标题里面”（未完成）“的含义了。</p>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>PCL 作为一个反编译拿来练手的项目我认为是相当不错的。</p>
+<p>首先，它的项目体积足够让人晕头转向，但是又不至于让电脑都炸掉。里面蛛丝马迹很多。同时其外表做很多鉴权的函数给人一种假象，其实破解并不是很难。这里留下了很多漏洞和可以练习的地方，因此非常适合给想要练手的人玩玩。</p>
+<p>反编译涉及到的编程知识面非常广，例如 RSA 部分需要你学习一点数学知识，同时多语言的转换还有助于你熟悉两种语言的思维模式</p>
+<p>作为一个之前没有反编译过任何一个项目的人，我非常喜欢这种解密的感受。</p>
+<p>基于本文章还原的 Python 破解脚本代码已经公开在 <a class="link"   target="_blank" rel="noopener" href="https://github.com/Ignis-Studio/PCLThemeUnlock" >https://github.com/Ignis-Studio/PCLThemeUnlock<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> ，可供参考。</p>
+<p>感谢阅读。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.luogu.com/article/ughew4si" >PCL2的反编译以及主题破解(除秋仪金)(修改版)<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>  · TheZihanGu · 洛谷专栏</p>
+</li>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://blog.ski.ink/2025/04/04/pcl-encrypt-and-decrypt/" >PCL 反编译——加密和解密原理记录 - 盐木的小破窝<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> · SaltWood233 · 个人博客</p>
+</li>
+</ul>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> 【PCL】主题、更新与CDN的破解（未完成）</li>
+        <li><strong>作者:</strong> CreeperIsASpy | 仿生猫梦见苦力怕</li>
+        <li><strong>创建于
+                :</strong> 2026-01-19 15:12:35</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2026-01-19 16:58:04
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://blog.creeperspy.top/2026/01/19/【PCL】主题、更新与CDN的破解（未完成）/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/PCL/">#PCL</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/%E6%8A%80%E6%9C%AF/">#技术</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/%E8%A7%82%E7%82%B9/">#观点</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/2026/01/19/hello-world/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48">Hello World</span>
+						<span class="post-nav-item">上一篇</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2025/12/28/%E3%80%90%E6%8A%80%E6%9C%AF%E3%80%91%E5%AE%B6%E9%87%8C%E4%BA%91%E7%9A%84%E4%B8%89%E7%99%BE%E5%85%AD%E5%8D%81%E4%BA%94%E9%87%8C%E8%B7%AF%E5%95%8A/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48">【技术】家里云的三百六十五里路啊~</span>
+						<span class="post-nav-item">下一篇</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div id="giscus-container"></div>
+    <script data-swup-reload-script defer>
+        async function loadGiscus() {
+            const giscusConfig = {
+                'src': 'https://giscus.app/client.js',
+                'data-repo': 'CreeperIsASpy/blog',
+                'data-repo-id': 'R_kgDOQbXFuA',
+                'data-category': 'Announcements',
+                'data-category-id': 'DIC_kwDOQbXFuM4CzNj5',
+                'data-mapping': 'pathname',
+                'data-strict': '0',
+                'data-reactions-enabled': '1',
+                'data-emit-metadata': '1',
+                'data-theme': 'preferred_color_scheme',
+                'data-lang': 'zh-CN',
+                'data-input-position': 'bottom',
+                'data-loading': 'lazy',
+                'crossorigin': 'anonymous',
+                'async': true
+            }
+            const giscusScript = document.createElement('script');
+            for (const key in giscusConfig) {
+                giscusScript.setAttribute(key, giscusConfig[key]);
+            }
+            document.getElementById('giscus-container').appendChild(giscusScript);
+        }
+        if ('true') {
+            let loadGiscusTimeout = setTimeout(() => {
+                loadGiscus();
+                clearTimeout(loadGiscusTimeout);
+            }, 1000);
+        } else {
+            document.addEventListener('DOMContentLoaded', loadGiscus);
+        }
+    </script>
+
+
+        
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">目录</div>
+		<div class="page-title">【PCL】主题、更新与CDN的破解（未完成）</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8D%E7%BC%96%E8%AF%91"><span class="nav-text">反编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98"><span class="nav-text">主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E4%B8%BB%E9%A2%98"><span class="nav-text">其他主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%8B%E4%BB%AA%E9%87%91"><span class="nav-text">秋仪金</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%81%E9%92%A5%E7%9A%84%E7%A0%B4%E8%A7%A3%E8%BF%87%E7%A8%8B"><span class="nav-text">私钥的破解过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%81%E9%92%A5%E9%AA%8C%E8%AF%81"><span class="nav-text">私钥验证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0"><span class="nav-text">更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E9%89%B4%E6%9D%83"><span class="nav-text">网络鉴权</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9D%9F%E8%AF%AD"><span class="nav-text">结束语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-text">参考文献</span></a></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2025</span>
+              -
+            
+            2026&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">CreeperIsASpy | 仿生猫梦见苦力怕</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共撰写了 4 篇文章
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.5</a></span>
+        </div>
+        
+            <div class="icp-info my-1"><a target="_blank" rel="nofollow" href="
+                
+                    https://icp.gov.moe/?keyword=20250384
+                
+                ">萌ICP备20250384号</a></div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="站内搜索您需要的内容..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/build/utils.js" type="module"></script>
+
+<script src="/js/build/main.js" type="module"></script>
+
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/build/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+  
+<script src="/js/build/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+    
+<script src="/js/build/libs/anime.min.js"></script>
+
+
+
+
+
+    
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+	
+	<div id="aplayer"></div>
+
+<script src="/js/build/libs/APlayer.min.js"></script>
+
+
+<script src="/js/build/plugins/aplayer.js"></script>
+
+
+	
+</body>
+
+</html>
