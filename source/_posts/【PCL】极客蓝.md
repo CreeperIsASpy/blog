@@ -4,48 +4,46 @@ date: 2026-01-30 16:55:00
 tags: [PCL, 解密游戏]
 ---
 
-# 极客蓝
-
 初始线索：设置 -> 个性化 -> 主题中找到应为极客蓝的单选框，右键得到提示。
 
 ## 上半部分
 
 1、非常简单的镜像输出，通过原提示 `gnp.dorC61\60\20\0202\moc.x1xa.2s\\:sptth` 得到 `https://s2.ax1x.com/2020/02/06/16Crod.png`。
 图片如下：
-![loading-ag-1831](/images/jikelan-1.png)
+![jikelan-1.png](/images/jikelan-1.png)
 
 2、根据箱子下面隐约写着的“MCBBS”，考虑下一步是在MCBBS上。 图片右侧的数据格式显然是罗马数字，转换为十进制数得到“115981”。 所以我们应该找的就是MCBBS上的115981号帖子。
-一个尴尬的问题是，MCBBS早就已经关站了。怎么办呢？ 当时我想拿网页快照试试运气。 随便找了一个Discuz论坛按照同样格式拼接了URL，得到[https://www.mcbbs.net/thread-115981-1-1.html](https://www.mcbbs.net/thread-115981-1-1.html)。将这个URL丢进Web Archive，发现竟然真的有结果，是[2021年6月6日8时28分29秒的快照](https://web.archive.org/web/20210606082829/www.mcbbs.net/thread-115981-1-1.html)。 得到下一张图片如下：
-![loading-ag-1832](/images/jikelan-2.jpg)
+一个尴尬的问题是，MCBBS早就已经关站了。怎么办呢？ 拿网页快照试试运气。 随便找了一个Discuz论坛按照同样格式拼接了URL，得到<https://www.mcbbs.net/thread-115981-1-1.html>。将这个 URL 丢进 Web Archive，发现竟然真的有结果，是[2021年6月6日8时28分29秒的快照](https://web.archive.org/web/20210606082829/www.mcbbs.net/thread-115981-1-1.html)。 得到下一张图片如下：
+![jikelan-2.jpg](/images/jikelan-2.jpg)
 
 3、这个帖子的“下载地址”处写着`https://tijnp.jn/tiffut`。这显然不是一个有效的地址，然而经常参加PCL内群活动的人应该一眼就能看出，域名部分是龙猫非常常用的在线文档网站：石墨文档。图片中左侧，石墨的晶体结构也佐证了这一观点。反推可得，这个“下载地址”的host部分经过了1位的凯撒加密。解密可得shimo.im/sheets（同时也是此图片的附件名）。
 右侧的字母是`waa0J0aptokQEaJp`。拼接可得[https://shimo.im/sheets/waa0J0aptokQEaJp](https://shimo.im/sheets/waa0J0aptokQEaJp)
 
 4、这个石墨文档的DI列第10行有一行网址，是[https://dwz.cn/W6ngY1lE](https://dwz.cn/W6ngY1lE)。访问进入百度网盘[https://pan.baidu.com/s/1pUQvKvop9ON7Pa4lCMTxDA?next=1PErfXH-5T1SfhNqmo1rKfQ&key=v4fh](https://pan.baidu.com/s/1pUQvKvop9ON7Pa4lCMTxDA?next=1PErfXH-5T1SfhNqmo1rKfQ&key=v4fh)
 
-网盘分享了`gnp.erutcip`。有了第一关的经验，把这个文件重命名为`picture.png`尝试打开，但是发现图片打开出错。搜索文件头发现其实是 GIF 文件……
+网盘分享了`gnp.erutcip`。有了第一关的经验，把这个文件重命名为`picture.png`尝试打开，但是发现图片打开出错。打开 UltraEdit 搜索文件头发现其实是 GIF 文件……
 
 修改文件名为`picture.gif`得到[这张](/images/jikelan-6.gif)两帧的动图（markdown 似乎不支持动图，所以放个链接在这）。
 
 ![jikelan-3](/images/jikelan-3.png)
 
-![jikelan-4](C:\Users\Extinguisher\Downloads\gifsplit_2026_01_29_17_41_51\frame_2.png)
+![jikelan-4](/images/jikelan-4.png)
 
-5、这张GIF先放一边。如果你细心观察刚刚那百度网盘链接，你会发现一个“next”查询串和一个“key”。显然这是一个百度网盘分享链接的后半部分（被重定向）。因此重定向前的链接提取为：`https://pan.baidu.com/s/1PErfXH-5T1SfhNqmo1rKfQ`  
+5、这张 GIF 先放一边。观察刚刚那百度网盘链接，你会发现一个“next”查询串和一个“key”。显然这是一个百度网盘分享链接的后半部分（被重定向）。因此重定向前的链接提取为：`https://pan.baidu.com/s/1PErfXH-5T1SfhNqmo1rKfQ`  
 提取码即为`v4fh`
 
 6、下载链接里的文件得到一个 **巨型** JPG 照片，足足有 32M。
 
-很明显，这是一个合体隐写文件。打开UltraEdit，进入十六进制模式，往下翻一点，就可以看到DIM-1。熟悉mc的玩家肯定知道这是什么。这是代表下界的文件夹名称。显然，这张图片里面隐藏了一个 Minecraft 世界。在图片里面隐藏文件的最简单方法就是创建一个ZIP归档。所以考虑在文件中搜索ZIP归档的文件头`50 4B 03 04`。成功拆分。
+很明显，这是一个合体隐写文件。打开 UltraEdit，进入十六进制模式，往下翻一点，就可以看到`DIM-1`。熟悉mc的玩家肯定知道这是什么。这是代表下界的文件夹名称。显然，这张图片里面隐藏了一个 Minecraft 世界。在图片里面隐藏文件的最简单方法就是创建一个 ZIP 归档。所以考虑在文件中搜索ZIP归档的文件头`50 4B 03 04`。成功拆分。
 
 图片部分如下：
 
-![jikelan-5](C:\Users\Extinguisher\Downloads\jikelan-5.jpg)
+![jikelan-5](/images/jikelan-5.jpg)
 
 调高对比度可以发现右下角的文字是：“留心角落与风景”。
 
 7、将后缀名直接更改为 zip 解压并导入存档。版本是 19w04a ，进入世界后发现世界里有讲台，周围围一圈屏障，且在 `-111 65 -679` 处有命令方块循环使玩家处于冒险模式。有很多马，跳起来右键马就能越过屏障了。讲台上书的内容为：
-![](C:\Users\Extinguisher\AppData\Roaming\marktext\images\2026-01-29-18-03-49-image.png)
+![jikelan-book.png](/images/jikelan-book.png)
 
 这本书的物品名为`4->1`。
 
@@ -53,7 +51,7 @@ tags: [PCL, 解密游戏]
 
 ## 下半部分
 
-本文参考的 discussion 里重点提到了一个 bilibili 专栏，但是貌似已经没了。所幸在 web archive 上面找到了 [2024 年 4 月 5 日的备份](https://web.archive.org/web/20240405112111/https://www.bilibili.com/read/cv21498570/) 。
+本文参考的 discussion 里重点提到了一个 bilibili 专栏，但是貌似已经没了。所幸在 Web Archive 上面找到了 [2024 年 4 月 5 日的备份](https://web.archive.org/web/20240405112111/https://www.bilibili.com/read/cv21498570/) 。
 
 里面提供了泠绮芜、Linf_BLAE提供的一些解密线索：
 
@@ -144,7 +142,7 @@ tags: [PCL, 解密游戏]
 
 ### 解谜环节！
 
-前往地图中对应坐标，来到一个神秘小房间。墙上有告示牌，内容如下：
+前往地图中对应坐标`2603, 23, 7158`，来到一个神秘小房间。墙上有告示牌，内容如下：
 
 > 初见湖符之图，纯白一片。
 > 
@@ -160,7 +158,7 @@ tags: [PCL, 解密游戏]
 
 逐步解读：
 
-第一、二句——对拼装的解读。
+第一、二句——对拼装羊皮纸的解读。
 
 第三句——结合回声洞，指查找石墨文档编辑记录（老版本）或讨论区提示（新版本），可以得到百度网盘链接。
 
@@ -228,9 +226,9 @@ tags: [PCL, 解密游戏]
 
 [极客蓝解密进程 · Meloong-Git/PCL · Discussion #3386](https://github.com/Meloong-Git/PCL/discussions/3386)
 
-[PCL2三方五审]PCL2隐藏主题解锁教程 · 龙腾鸽跃 · Bilibili 专栏
+[【PCL2三方五审】PCL2隐藏主题解锁教程 · 龙腾鸽跃 · Bilibili 专栏（已失效）](https://www.bilibili.com/read/cv21498570)
 
-
+## 超级感谢 @PlayMcBKuwu 对主题解锁第二部分的支持！！！！！！
 
 
 
