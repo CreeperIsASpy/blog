@@ -17,9 +17,9 @@ tags: [PCL, 解密游戏]
 ![jikelan-2.jpg](/images/jikelan-2.jpg)
 
 3、这个帖子的“下载地址”处写着`https://tijnp.jn/tiffut`。这显然不是一个有效的地址，然而经常参加PCL内群活动的人应该一眼就能看出，域名部分是龙猫非常常用的在线文档网站：石墨文档。图片中左侧，石墨的晶体结构也佐证了这一观点。反推可得，这个“下载地址”的host部分经过了1位的凯撒加密。解密可得shimo.im/sheets（同时也是此图片的附件名）。
-右侧的字母是`waa0J0aptokQEaJp`。拼接可得[https://shimo.im/sheets/waa0J0aptokQEaJp](https://shimo.im/sheets/waa0J0aptokQEaJp)
+右侧的字母是`waa0J0aptokQEaJp`。拼接可得<https://shimo.im/sheets/waa0J0aptokQEaJp>
 
-4、这个石墨文档的DI列第10行有一行网址，是[https://dwz.cn/W6ngY1lE](https://dwz.cn/W6ngY1lE)。访问进入百度网盘[https://pan.baidu.com/s/1pUQvKvop9ON7Pa4lCMTxDA?next=1PErfXH-5T1SfhNqmo1rKfQ&key=v4fh](https://pan.baidu.com/s/1pUQvKvop9ON7Pa4lCMTxDA?next=1PErfXH-5T1SfhNqmo1rKfQ&key=v4fh)
+4、这个石墨文档的DI列第10行有一行网址，是<https://dwz.cn/W6ngY1lE>。访问进入百度网盘<https://pan.baidu.com/s/1pUQvKvop9ON7Pa4lCMTxDA?next=1PErfXH-5T1SfhNqmo1rKfQ&key=v4fh>
 
 网盘分享了`gnp.erutcip`。有了第一关的经验，把这个文件重命名为`picture.png`尝试打开，但是发现图片打开出错。打开 UltraEdit 搜索文件头发现其实是 GIF 文件……
 
@@ -105,7 +105,7 @@ tags: [PCL, 解密游戏]
 
 首先通过 mc 存档中的书名`4->1`和回声洞，知道需要连接羊皮纸。
 
-首先来看看我们之前的几张羊皮纸：
+来看看我们之前的几张羊皮纸：
 ![jikelan-1.png](/images/jikelan-1.png)
 
 ![jikelan-2.jpg](/images/jikelan-2.jpg)
@@ -166,7 +166,7 @@ tags: [PCL, 解密游戏]
 
 可以下载到这份文件（原文件名为“极客蓝.jpg”）：
 
-![jikelan-7.png](/images/jikelan-7.jpg)
+![jikelan-7.png](/images/jikelan-7.png)
 
 其中小蓝点坐标为（行，列）：
 
